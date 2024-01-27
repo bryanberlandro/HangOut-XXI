@@ -12,6 +12,21 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export function Carousel(){
+    const banners = [
+        {
+            id: 1,
+            image: banner1
+        },
+        {
+            id: 2,
+            image: banner2
+        },
+        {
+            id: 3,
+            image: banner3
+        },
+    ]
+
     return (
         <Swiper
         modules={[Pagination, Scrollbar, A11y, Autoplay]}
@@ -29,23 +44,15 @@ export function Carousel(){
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
-        className='w-full shadow-multiple border-2 rounded-md overflow-hidden'
+        className='w-full shadow-multiple border-2 rounded-lg overflow-hidden'
         >
-            <SwiperSlide>
+            {banners.map((banner) => (
+            <SwiperSlide key={banner.id}>
                 <div className='h-44 w-full relative overflow-hidden'>
-                    <img src={banner1} alt="" className='w-full h-full object-cover'/>
+                    <img src={banner.image} alt="" className='w-full h-full object-cover'/>
                 </div>
             </SwiperSlide>
-            <SwiperSlide>
-                <div className='h-44 w-full relative overflow-hidden'>
-                    <img src={banner2} alt="" className='w-full h-full object-cover'/>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className='h-44 w-full relative overflow-hidden '>
-                    <img src={banner3} alt="" className='w-full h-full object-cover'/>
-                </div>
-            </SwiperSlide>
+            ))}
         </Swiper>
     )
 }

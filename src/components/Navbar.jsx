@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { Sidebar } from "./Sidebar"
 import { HiMenu } from "react-icons/hi";
+import { FaBell } from "react-icons/fa6";
 
 export default function Navbar() {
     const [showSidebar, setShowSidebar] = useState(false)
+    const [notifications, setNotifications] = useState(0)
 
     function handleShowSidebar(){
         setShowSidebar(!showSidebar)
@@ -34,7 +36,15 @@ export default function Navbar() {
                 <a href="">Login</a> | <a href="">Register ?</a>
             </div>
         </div>
+        <div className="flex gap-7">
+            <div className="relative">
+            <FaBell className="text-white md:hidden text-lg"/>
+            <div className="absolute -top-2 -right-2 bg-btn rounded-full flex items-center h-4 w-4 justify-center text-white text-xs">
+                {notifications}
+            </div>
+            </div>
             <HiMenu className="text-white md:hidden text-lg"  onClick={handleShowSidebar}/>
+        </div>
         </header>
         <Sidebar onShowSidebar={showSidebar}/>
         </>
