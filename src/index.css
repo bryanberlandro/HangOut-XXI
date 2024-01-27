@@ -5,3 +5,7 @@
 li {
   @apply list-none text-white font-normal
 }
+
+.scroll-hidden::-webkit-scrollbar{
+  display: none
+}

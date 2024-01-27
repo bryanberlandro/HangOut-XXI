@@ -29,7 +29,7 @@ export function Carousel(){
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
-        className='w-full border-2 rounded-md overflow-hidden'
+        className='w-full shadow-multiple border-2 rounded-md overflow-hidden'
         >
             <SwiperSlide>
                 <div className='h-44 w-full relative overflow-hidden'>
