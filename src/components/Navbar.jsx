@@ -11,8 +11,8 @@ export default function Navbar() {
 
     return (
         <>
-        <header className="w-full flex items-center justify-between px-[7%] h-14 bg-primary z-50 fixed top-0 md:px-[10%] md:h-14 xl:px-[8%]">
-            <h1 className="text-xl font-semibold text-white contrast-125">HANGOUT</h1>
+        <header className="w-full flex items-center justify-between px-[7%] h-14 bg-zinc-900 z-50 fixed top-0 md:px-[10%] md:h-14 xl:px-[8%]">
+            <h1 className="text-xl font-semibold text-white contrast-125">HANGOUT.<span className="text-btn font-semibold">XXI</span></h1>
             <div>
             </div>
         <nav className="gap-12 items-center hidden md:flex xl:gap-20">

@@ -10,10 +10,11 @@ export default {
         'poppins': 'Poppins, sans-serif'
       },
       colors: {
-        'primary': '#404258',
-        'secondary': '#474E68',
-        'tertiary': '#6B728E',
-        'btn': '#3C7EFC',
+        'primary': '#18181b',
+        'secondary': '#27272a',
+        'tertiary': '#3f3f46',
+        'btn': '#0ea5e9',
+        'btn-focus': '#0284c7',
         'milk': '#FFFAFA'
       },
       boxShadow: {

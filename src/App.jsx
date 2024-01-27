@@ -2,6 +2,7 @@
 
 import { Hero } from "./components/Hero"
 import Navbar from "./components/Navbar"
+import { TabBar } from "./components/TabBar"
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <>
     <Navbar/>
     <Hero/>
+    <TabBar/>
     </>
   )
 }
