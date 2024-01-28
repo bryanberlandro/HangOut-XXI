@@ -32,10 +32,6 @@ export function Carousel(){
         modules={[Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
-        // navigation={{
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // }}
         autoplay={{
             delay: 2500,
             disableOnInteraction: false,

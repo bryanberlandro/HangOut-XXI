@@ -9,3 +9,24 @@ li {
 .scroll-hidden::-webkit-scrollbar{
   display: none
 }
+
+.swiper-pagination-bullet {
+  @apply w-2 h-2 bg-tertiary
+}
+
+.swiper-pagination-bullet-active {
+  width: 25px;
+  height: 8px;
+  transition: width 0.5s;
+  border-radius: 5px;
+  background: #68b8ff;
+  border: 1px solid transparent;
+}
+
+swiper-slide{
+  @apply w-52 h-80 overflow-hidden rounded-lg shadow-soft transition-all duration-500
+}
+
+/* .swiper-slide-active{
+  @apply after:content-['Buy_Now'] after:bg-btn after:absolute after:bottom-0 after:animate-pulse after:text-white after:w-full after:py-2 after:text-center scale-110
+} */

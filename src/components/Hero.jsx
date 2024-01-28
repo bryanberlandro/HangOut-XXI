@@ -2,6 +2,7 @@ import { Carousel } from "./Carousel";
 import { Movie } from "./Movie";
 import { FaLocationDot, FaTicket } from "react-icons/fa6";
 import { Promo } from "./Promo";
+import { UpcomingMovie } from "./UpcomingMovie";
 
 export function Hero(){
     return (
@@ -36,6 +37,7 @@ export function Hero(){
                 </div>
             </div>
             <Promo/>
+            <UpcomingMovie/>
         </main>
     )
 }

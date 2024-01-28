@@ -1,5 +1,5 @@
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "../utils/Swiper";
+import { SwiperSlide } from "../utils/SwiperSlide";
 
 import poster1 from '../assets/img/poster-1.webp'
 import poster2 from '../assets/img/poster-2.jpg'
@@ -38,23 +38,37 @@ export function Movie(){
     return(
         <>
         <Swiper
+        pagination={{
+            el: '.movie-pagination',
+            clickable: true,
+        }}
         slidesPerView={2}
-        spaceBetween={10}
         centeredSlides={true}
-        draggable={true}
-        navigation={false}
+        spaceBetween={15}
+        effect={'coverflow'}
+        coverflowEffect={{
+            depth: 100,
+            rotate: 30,
+            stretch: 0,
+            modifier: 1,
+            slideShadows: true,
+        }}
         loop={true}
-        modules={[Pagination,Navigation]}
-        className="h-[450px] flex gap-10 py-6 my-2"
-    >
-        {posters.map((poster) => (
-            <SwiperSlide key={poster.id} className="h-96 w-96 border-2 rounded-xl overflow-hidden shadow-soft">
-                <img src={poster.image} alt="" className="w-full h-full object-cover" />
+        breakpoints={{
+            768: {slidesPerView: 3},
+            1280: {slidesPerView: 4}
+        }}
+        className="h-[350px] mt-8"
+        >
+            {posters.map((movie) => (
+            <SwiperSlide key={movie.id}>
+                    <img src={movie.image} alt=""  className="w-full h-full object-cover"/>
             </SwiperSlide>
-        ))}
-
-        
-    </Swiper>
-    </>
+            ))}
+            
+        </Swiper>
+        <div className="movie-pagination flex gap-3 w-full justify-center">
+        </div>
+        </>
     )
 }
