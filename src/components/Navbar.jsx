@@ -17,6 +17,10 @@ export default function Navbar() {
         setShowNotif(!showNotif)
     }
 
+    function handleReturnNotification(){
+        setShowNotif(!showNotif)
+    }
+
 
     return (
         <>
@@ -53,7 +57,7 @@ export default function Navbar() {
             <HiMenu className="text-black xl:hidden text-lg"  onClick={handleShowSidebar}/>
         </div>
         </header>
-        <Notifications onShowNotification={showNotif}/>
+        <Notifications returnNotification={handleReturnNotification}  onShowNotification={showNotif}/>
         <Sidebar onShowSidebar={showSidebar}/>
         </>
     )

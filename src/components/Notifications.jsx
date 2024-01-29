@@ -4,7 +4,7 @@ import notif1 from "../assets/img/poster-2.jpg"
 import notif2 from "../assets/img/poster-3.jpeg"
 import { useState } from "react";
 
-export function Notifications({onShowNotification}){
+export function Notifications({onShowNotification, returnNotification}){
     const [state, setState] = useState(true)
     
     // function handleHideNotif(){
@@ -22,7 +22,7 @@ export function Notifications({onShowNotification}){
         
         >
             <div className="w-full relative flex items-center bg-white border-b-2 py-3 justify-center ">
-            <FaArrowLeft className="absolute left-[5%] text-lg"/>
+            <FaArrowLeft onClick={returnNotification} className="absolute left-[5%] text-lg"/>
             <h1 className="text-xl font-semibold text-black contrast-125">HANGOUT.
                 <span 
                 className="bg-gradient-to-br from-btn to-btn-focus bg-clip-text text-transparent">XXI
