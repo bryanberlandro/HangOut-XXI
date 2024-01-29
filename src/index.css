@@ -24,9 +24,9 @@ li {
 }
 
 swiper-slide{
-  @apply w-52 h-80 overflow-hidden rounded-lg shadow-soft transition-all duration-500
+  @apply w-52 h-80 overflow-hidden rounded-lg shadow-soft transition-all duration-500 md:w-72 md:h-[450px]
 }
 
-/* .swiper-slide-active{
-  @apply after:content-['Buy_Now'] after:bg-btn after:absolute after:bottom-0 after:animate-pulse after:text-white after:w-full after:py-2 after:text-center scale-110
-} */
+.swiper-slide-active{
+  @apply after:content-['BUY_NOW'] after:bg-gradient-to-t after:from-sky-500 after:absolute after:bottom-0 after:text-white after:w-full after:font-semibold after:pt-12 after:pb-4 after:text-center after:animate-inEffect
+}

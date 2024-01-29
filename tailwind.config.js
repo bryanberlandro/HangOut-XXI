@@ -20,6 +20,15 @@ export default {
       boxShadow: {
         'soft': '0px 5px 50px rgba(0, 67, 101, 8%)',
         'multiple': '0 5px 50px rgba(0, 67, 101, 10%), 0 2px 6px rgba(0, 67, 101, 10%)'
+      },
+      animation: {
+        'inEffect': 'inReveal .5s'
+      },
+      keyframes: {
+        inReveal: {
+          '0%': { transform: 'translateY(50px)'},
+          '100%': { transform: 'translateY(0)'}
+        } 
       }
     },
   },

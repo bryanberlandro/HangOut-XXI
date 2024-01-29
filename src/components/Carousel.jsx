@@ -3,7 +3,8 @@ import { Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import banner1 from '../assets/img/banner-1.jpg'
 import banner2 from '../assets/img/banner-2.jpg'
-import banner3 from '../assets/img/banner-3.jpg'
+import banner3 from '../assets/img/promo-2.jpg'
+import banner4 from '../assets/img/promo-1.jpg'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,11 +20,15 @@ export function Carousel(){
         },
         {
             id: 2,
-            image: banner2
+            image: banner4
         },
         {
             id: 3,
             image: banner3
+        },
+        {
+            id: 4,
+            image: banner2
         },
     ]
 
@@ -43,8 +48,8 @@ export function Carousel(){
         className='w-full shadow-multiple border-2 rounded-lg overflow-hidden'
         >
             {banners.map((banner) => (
-            <SwiperSlide key={banner.id}>
-                <div className='h-44 w-full relative overflow-hidden'>
+            <SwiperSlide key={banner.id} className="after:content-[''] after:bg-none">
+                <div className='h-44 md:h-64 w-full relative overflow-hidden xl:h-[500px]'>
                     <img src={banner.image} alt="" className='w-full h-full object-cover'/>
                 </div>
             </SwiperSlide>

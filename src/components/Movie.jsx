@@ -33,6 +33,18 @@ export function Movie(){
             'image': poster5,
             'id': 5,
         },
+        {
+            'image': poster5,
+            'id': 6,
+        },
+        {
+            'image': poster5,
+            'id': 7,
+        },
+        {
+            'image': poster5,
+            'id': 8,
+        },
     ]
 
     return(
@@ -41,13 +53,14 @@ export function Movie(){
         pagination={{
             el: '.movie-pagination',
             clickable: true,
+            // dynamicBullets: true,
         }}
-        slidesPerView={2}
+        // slidesPerView={2}
         centeredSlides={true}
-        spaceBetween={15}
+        // spaceBetween={15}
         effect={'coverflow'}
         coverflowEffect={{
-            depth: 100,
+            depth: 150,
             rotate: 30,
             stretch: 0,
             modifier: 1,
@@ -55,10 +68,20 @@ export function Movie(){
         }}
         loop={true}
         breakpoints={{
-            768: {slidesPerView: 3},
-            1280: {slidesPerView: 4}
+            360: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+            },
         }}
-        className="h-[350px] mt-8"
+        className="h-[350px] w-full mt-8 md:h-[470px] md:mt-14 xl:h-[500px]"
         >
             {posters.map((movie) => (
             <SwiperSlide key={movie.id}>
@@ -67,7 +90,7 @@ export function Movie(){
             ))}
             
         </Swiper>
-        <div className="movie-pagination flex gap-3 w-full justify-center">
+        <div className="movie-pagination flex w-full justify-center xl:mt-5">
         </div>
         </>
     )

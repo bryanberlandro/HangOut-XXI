@@ -6,7 +6,7 @@ export function SwiperSlide(props) {
     } = props;
   
     return (
-      <swiper-slide {...rest} className="swiper-movie">
+      <swiper-slide {...rest}>
         {children}
       </swiper-slide>
     );

@@ -34,7 +34,7 @@ export function UpcomingMovie(){
 
     return(
         <>
-        <div className="flex items-center gap-2 mt-10 mb-8 px-[5%]">
+        <div className="flex items-center gap-2 mt-20 mb-8 px-[5%]">
             <h1 className="font-semibold text-lg">Upcoming Movies</h1>
             <FaFire className="text-red-400 animate-bounce"/>
         </div>
@@ -42,13 +42,14 @@ export function UpcomingMovie(){
         pagination={{
             el: '.custom-pagination',
             clickable: true,
+            // dynamicBullets: true,
         }}
-        slidesPerView={2}
+        // slidesPerView={2}
         centeredSlides={true}
-        spaceBetween={15}
+        // spaceBetween={15}
         effect={'coverflow'}
         coverflowEffect={{
-            depth: 100,
+            depth: 150,
             rotate: 30,
             stretch: 0,
             modifier: 1,
@@ -56,10 +57,20 @@ export function UpcomingMovie(){
         }}
         loop={true}
         breakpoints={{
-            768: {slidesPerView: 3},
-            1280: {slidesPerView: 4}
+            360: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+            },
         }}
-        className="h-[350px]"
+        className="h-[350px] w-full mt-8 md:h-[470px] md:mt-14 xl:h-[500px]"
         >
             {upcomingMovies.map((movie) => (
             <SwiperSlide key={movie.id} className='swiper-slide-upcoming'>
@@ -69,7 +80,7 @@ export function UpcomingMovie(){
             ))}
             
         </Swiper>
-        <div className="custom-pagination flex gap-3 w-full justify-center">
+        <div className="custom-pagination flex gap-3 w-full justify-center xl:mt-5">
         </div>
         </>
     )
