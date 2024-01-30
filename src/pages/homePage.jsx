@@ -4,6 +4,7 @@ import { FaLocationDot, FaTicket } from "react-icons/fa6";
 import { Promo } from "../components/Promo";
 import { UpcomingMovie } from "../components/UpcomingMovie";
 import Navbar from "../components/Navbar";
+import { FeaturesLayout } from "../components/Layouts/FeaturesLayout";
 
 export default function Home(){
 
@@ -42,6 +43,7 @@ export default function Home(){
             </div>
             <Promo/>
             <UpcomingMovie/>
+            <FeaturesLayout/>
         </main>
         </>
     )

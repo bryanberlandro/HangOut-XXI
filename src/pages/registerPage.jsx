@@ -4,7 +4,7 @@ import { AuthLayout } from "../components/Layouts/AuthLayout";
 
 export default function RegisterPage(){
     return (
-        <div className="w-full h-[100dvh] px-[5%] flex justify-center relative items-start pt-7">
+        <div className="w-full h-[100dvh] px-[5%] flex justify-center relative items-center">
             <AuthLayout title={"Register"} type={"register"}>
                 <FormRegister/>
             </AuthLayout>

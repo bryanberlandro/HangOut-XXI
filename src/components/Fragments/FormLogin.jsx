@@ -5,7 +5,7 @@ import InputForm from "../Elements/Input";
 export default function FormLogin(){
     return (
         <>
-        <div className="flex flex-col gap-3 mt-6">
+        <div className="flex flex-col gap-5">
             <InputForm
             type="email"
             name="email"

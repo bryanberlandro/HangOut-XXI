@@ -5,7 +5,7 @@ import InputForm from "../Elements/Input";
 export default function FormRegister(){
     return (
         <>
-        <div className="flex flex-col gap-4 mt-6">
+        <div className="flex flex-col gap-5 mt-4">
             <InputForm
             type="text"
             name="username"
