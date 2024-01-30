@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import 'swiper/css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home } from './pages/home.jsx';
+import { Home } from '../src/pages/home.jsx';
 import LoginPage from '../src/pages/loginPage.jsx';
 import RegisterPage from './pages/registerPage.jsx';
 
