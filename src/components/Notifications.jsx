@@ -2,14 +2,8 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import notif1 from "../assets/img/poster-2.jpg"
 import notif2 from "../assets/img/poster-3.jpeg"
-import { useState } from "react";
 
 export function Notifications({onShowNotification, returnNotification}){
-    const [state, setState] = useState(true)
-    
-    // function handleHideNotif(){
-    //     !onShowNotification
-    // }
 
     return(
         <>
@@ -33,7 +27,7 @@ export function Notifications({onShowNotification, returnNotification}){
             <div className="px-[5%] pt-4 "> 
                 <h1 className="font-medium">Notifications ( 2 )</h1>
                 <div className="flex flex-col gap-3 mt-4">
-                    <div className="w-full rounded-md h-36 overflow-hidden flex shadow-multiple">
+                    <div className="w-full rounded-md h-32 overflow-hidden flex shadow-multiple">
                         <div className="w-52 h-full">
                             <img src={notif1} alt="" className="w-full h-full object-cover"/>
                         </div>
@@ -45,7 +39,7 @@ export function Notifications({onShowNotification, returnNotification}){
                     </div>
                 </div>
                 <div className="flex flex-col gap-3 mt-4">
-                    <div className="w-full rounded-md h-36 overflow-hidden flex shadow-multiple">
+                    <div className="w-full rounded-md h-32 overflow-hidden flex shadow-multiple">
                         <div className="w-52 h-full">
                             <img src={notif2} alt="" className="w-full h-full object-cover"/>
                         </div>
@@ -55,6 +49,10 @@ export function Notifications({onShowNotification, returnNotification}){
                             <p className="text-neutral-600 mt-4 text-sm">Pre order sekarang dan dapatkan Cashback 15% - Film Kraven</p>
                         </div>
                     </div>
+                </div>
+
+                <div className="text-center">
+                    <h1 className="text-neutral-400 mt-8 text-sm">No more result</h1>
                 </div>
             </div>
         </div>

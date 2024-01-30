@@ -80,7 +80,7 @@ export function UpcomingMovie(){
             ))}
             
         </Swiper>
-        <div className="custom-pagination flex gap-3 w-full justify-center xl:mt-5">
+        <div className="custom-pagination flex gap-2 w-full justify-center xl:mt-5">
         </div>
         </>
     )

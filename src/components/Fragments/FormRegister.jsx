@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
 
@@ -31,9 +31,7 @@ export default function FormRegister(){
             value={"Password"}
             />
             <ButtonEl value={"Create Your Account"}/>
-            <div className="text-center">
-            <h1 className="font-light text-sm">Already have an account? <Link to={"/register"} className="text-btn font-semibold">Register</Link></h1>
-            </div>
+            
         </div>
         </>
     )

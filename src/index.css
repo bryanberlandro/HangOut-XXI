@@ -10,6 +10,10 @@ li {
   display: none
 }
 
+.btn-component {
+  @apply hover:bg-btn-focus hover:scale-[.98] mt-2 focus:outline focus:outline-4 focus:outline-sky-300 focus:bg-sky-700
+}
+
 .swiper-pagination-bullet {
   @apply w-2 h-2 bg-tertiary
 }
@@ -22,6 +26,7 @@ li {
   background: #68b8ff;
   border: 1px solid transparent;
 }
+
 
 swiper-slide{
   @apply w-52 h-80 overflow-hidden rounded-lg shadow-soft transition-all duration-500 md:w-72 md:h-[450px]
