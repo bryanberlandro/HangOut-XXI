@@ -3,10 +3,13 @@ import { Movie } from "../components/Movie";
 import { FaLocationDot, FaTicket } from "react-icons/fa6";
 import { Promo } from "../components/Promo";
 import { UpcomingMovie } from "../components/UpcomingMovie";
+import Navbar from "../components/Navbar";
 
 export function Home(){
 
     return (
+        <>
+        <Navbar/>
         <main className="pt-14">
             <div className="w-full py-5 flex justify-between px-[5%] md:px-[8%]">
                 <div className="flex gap-1 items-center cursor-pointer">
@@ -40,5 +43,6 @@ export function Home(){
             <Promo/>
             <UpcomingMovie/>
         </main>
+        </>
     )
 }
