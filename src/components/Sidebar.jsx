@@ -24,10 +24,10 @@ export function Sidebar({onShowSidebar}){
                 </li>
             </ul>
             <div className="flex flex-col gap-3">
-                <Link to={"/login"} className="w-full flex flex-col">
+                <Link to="/login" className="w-full flex flex-col">
                 <ButtonComp value={"Login"}/>
                 </Link>
-                <Link to={"/register"} className="w-full flex flex-col">
+                <Link to="/register" className="w-full flex flex-col">
                 <ButtonComp value={"Register"} bgStyle={"white"} textCol={"black"}/>
                 </Link>
             </div>
