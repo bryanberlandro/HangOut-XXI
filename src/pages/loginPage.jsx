@@ -7,12 +7,12 @@ import emailLogo from "../assets/img/email.png";
 
 export default function LoginPage(){
     return (
-        <div className="w-full h-[100dvh] px-[5%] flex justify-center items-start relative">
+        <div className="w-full h-[100dvh] px-[5%] flex justify-center items-center relative">
             
             <AuthLayout title={"Login"} type={"login"}>
                 <FormLogin/>
                 <ButtonSEO name={"Google"} image={googleLogo} />
-                <ButtonSEO name={"E-mail"} image={emailLogo} bgColor={"neutral-950"} color={"white"}/>
+                <ButtonSEO name={"E-mail"} image={emailLogo} bgColor={"bg-neutral-800"} color={"white"}/>
             </AuthLayout>
             <Waves/>
         </div>

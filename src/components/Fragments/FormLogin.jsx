@@ -26,7 +26,7 @@ export default function FormLogin(){
                 <a href="" className="text-btn text-sm">forget your password?</a>
             </div>
             <ButtonEl value={"LOGIN"}/>
-            <div className="w-full text-xs flex items-center justify-center text-neutral-400 gap-2">
+            <div className="w-full text-xs my-2 flex items-center justify-center text-neutral-400 gap-2">
                 <div className="bg-neutral-300 w-[40%] h-[2px]"></div>
                 <h1>OR</h1>
                 <div className="bg-neutral-300 w-[40%] h-[2px]"></div>
