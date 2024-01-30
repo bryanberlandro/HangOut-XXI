@@ -5,7 +5,7 @@ import { Promo } from "../components/Promo";
 import { UpcomingMovie } from "../components/UpcomingMovie";
 import Navbar from "../components/Navbar";
 
-export function Home(){
+export default function Home(){
 
     return (
         <>
