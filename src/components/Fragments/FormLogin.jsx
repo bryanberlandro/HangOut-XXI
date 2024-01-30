@@ -22,6 +22,9 @@ export default function FormLogin(){
             htmlFor="password"
             value={"Password"}
             />
+            <div className="text-end">
+                <a href="" className="text-btn text-sm">forget your password?</a>
+            </div>
             <ButtonEl value={"LOGIN"}/>
             <div className="text-center">
             <h1 className="font-light text-sm">Already have an account? <Link to={"/register"} className="text-btn font-semibold">Register</Link></h1>

@@ -32,5 +32,5 @@ export function Sidebar({onShowSidebar}){
                 </Link>
             </div>
         </nav>
-    )
+    ) 
 }
