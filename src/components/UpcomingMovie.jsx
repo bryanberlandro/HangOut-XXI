@@ -42,11 +42,8 @@ export function UpcomingMovie(){
         pagination={{
             el: '.custom-pagination',
             clickable: true,
-            // dynamicBullets: true,
         }}
-        // slidesPerView={2}
         centeredSlides={true}
-        // spaceBetween={15}
         effect={'coverflow'}
         coverflowEffect={{
             depth: 150,

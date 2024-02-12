@@ -53,11 +53,8 @@ export function Movie(){
         pagination={{
             el: '.movie-pagination',
             clickable: true,
-            // dynamicBullets: true,
         }}
-        // slidesPerView={2}
         centeredSlides={true}
-        // spaceBetween={15}
         effect={'coverflow'}
         coverflowEffect={{
             depth: 150,

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import Swiper core and required modules
 import { Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export function Carousel(){
+export function Carousel({showNotif}){
     const banners = [
         {
             id: 1,
@@ -43,12 +44,12 @@ export function Carousel(){
         }}
         loop={true}
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
         className='w-full shadow-multiple border-2 rounded-lg overflow-hidden'
         >
             {banners.map((banner) => (
-            <SwiperSlide key={banner.id} className="after:content-[''] after:bg-none">
+            <SwiperSlide onClick={showNotif} key={banner.id} className="after:content-[''] after:bg-none cursor-pointer">
                 <div className='h-44 md:h-64 w-full relative overflow-hidden xl:h-[500px]'>
                     <img src={banner.image} alt="" className='w-full h-full object-cover'/>
                 </div>

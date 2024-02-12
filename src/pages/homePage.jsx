@@ -5,8 +5,22 @@ import { Promo } from "../components/Promo";
 import { UpcomingMovie } from "../components/UpcomingMovie";
 import Navbar from "../components/Navbar";
 import { FeaturesLayout } from "../components/Layouts/FeaturesLayout";
+import { useState } from "react";
+import { Notifications } from "../components/Notifications";
+import { PartnersLayout } from "../components/Layouts/PartnersLayout";
+import { FooterLayout } from "../components/Layouts/FooterLayout";
 
 export default function Home(){
+    const [showNotification, setShowNotification] = useState(false)
+
+    function handleNotification(){
+        setShowNotification(!showNotification)
+    }
+    
+    function handleReturnNotification(){
+        setShowNotification(!showNotification)
+    }
+
 
     return (
         <>
@@ -17,13 +31,13 @@ export default function Home(){
                     <FaLocationDot className="text-btn xl:text-lg"/>
                     <h1 className="font-medium xl:text-lg xl:font-bold">DEPOK</h1>
                 </div>
-                <div className="flex gap-2 items-center cursor-pointer">
+                <div onClick={() => handleNotification()} className="flex gap-2 items-center cursor-pointer">
                     <FaTicket className="text-btn"/>
                     <h1 className="text-sm xl:font-semibold">Voucher</h1>
                 </div>
             </div>
             <div className="px-[5%] md:px-[8%]">
-            <Carousel/>
+            <Carousel showNotif={() => handleNotification()}/>
             </div>
             <div className="mt-10 md:my-20">
                 <div className="w-full px-[7%] flex justify-between items-center md:px-[8%]">
@@ -42,9 +56,14 @@ export default function Home(){
                 </div>
             </div>
             <Promo/>
+            <Notifications onShowNotification={showNotification} returnNotification={() => handleReturnNotification()}/>
             <UpcomingMovie/>
             <FeaturesLayout/>
+            <div className="my-20">
+            <PartnersLayout/>
+            </div>
         </main>
+        <FooterLayout/>
         </>
     )
 }

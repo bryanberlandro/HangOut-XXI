@@ -29,7 +29,7 @@ export function FeaturesLayout(){
     ]
 
     return(
-        <div className="mt-14 px-[5%] relative">
+        <div className="mt-14 px-[5%] relative overflow-hidden">
             <div className="absolute w-24 rotate-[20deg] -z-10 rounded-[4rem] bg-gradient-to-b from-sky-50 right-0 h-96"></div>
             <div className="absolute w-24 rotate-[20deg] -z-10 rounded-[4rem] bg-gradient-to-b from-sky-100 top-5 right-16 h-96"></div>
             <h1 className="font-semibold text-xl">Our Features</h1>
@@ -47,8 +47,8 @@ export function FeaturesLayout(){
             }}
             loop={true}
             pagination={{ clickable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
             className='w-full mt-8 shadow-multiple border-2 rounded-lg overflow-hidden'
             >
                 {features.map((feature) => (
