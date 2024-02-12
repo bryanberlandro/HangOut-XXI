@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Notifications } from "../components/Notifications";
 import { PartnersLayout } from "../components/Layouts/PartnersLayout";
 import { FooterLayout } from "../components/Layouts/FooterLayout";
+import { Link } from "react-router-dom";
 
 export default function Home(){
     const [showNotification, setShowNotification] = useState(false)
@@ -31,10 +32,12 @@ export default function Home(){
                     <FaLocationDot className="text-btn xl:text-lg"/>
                     <h1 className="font-medium xl:text-lg xl:font-bold">DEPOK</h1>
                 </div>
-                <div onClick={() => handleNotification()} className="flex gap-2 items-center cursor-pointer">
+                <Link to="/voucher">
+                <div className="flex gap-2 items-center cursor-pointer">
                     <FaTicket className="text-btn"/>
                     <h1 className="text-sm xl:font-semibold">Voucher</h1>
                 </div>
+                </Link>
             </div>
             <div className="px-[5%] md:px-[8%]">
             <Carousel showNotif={() => handleNotification()}/>

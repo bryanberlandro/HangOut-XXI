@@ -27,12 +27,12 @@ export function PartnersLayout(){
     return (
         <>
         <div className="px-[7%]">
-            <h1 className="font-semibold text-xl mb-10">Our Partners</h1>
+            <h1 className="font-semibold text-xl mb-6">Our Partners</h1>
             <div className="flex flex-wrap gap-4 justify-center">
             {partners.map(partner => (
                 <PartnersFrag image={partner.image} key={partner.id}/>
             ))}
-            
+            <img src="../../assets/img/cgv-logo.png"/>
             </div>
         </div>
         </>

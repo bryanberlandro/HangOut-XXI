@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './pages/homePage';
 import LoginPage from './pages/loginPage';
 import RegisterPage from './pages/registerPage';
+import PromoPage from './pages/promoPage';
 
 // const router = createBrowserRouter([
 //   {
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='/voucher' element={<PromoPage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
         </Routes>
