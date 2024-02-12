@@ -50,10 +50,10 @@ export default function Home(){
                 <div className="mt-3 overflow-hidden ">
                     <div className="scroll-hidden flex gap-2 w-max overflow-scroll px-[5%] md:px-[8%]">
                         <button value={'all'} className="border-btn border-[1px] rounded-2xl text-sm py-1 px-3 text-btn">Semua Film</button>
-                        <button value={'all'} className="border-zinc-300 bg-white border-[1px] rounded-2xl text-sm py-1 px-3 text-black">XXI</button>
-                        <button value={'all'} className="border-zinc-300 bg-white border-[1px] rounded-2xl text-sm py-1 px-3 text-black">CGV</button>
-                        <button value={'all'} className="border-zinc-300 bg-white border-[1px] rounded-2xl text-sm py-1 px-3 text-black">Cinepolis</button>
-                        <button value={'all'} className="border-zinc-300 bg-white border-[1px] rounded-2xl text-sm py-1 px-3 text-black">Watchlist</button>
+                        <button value={'all'} className="border-zinc-300 border-[1px] rounded-2xl text-sm py-1 px-3 text-black">XXI</button>
+                        <button value={'all'} className="border-zinc-300 border-[1px] rounded-2xl text-sm py-1 px-3 text-black">CGV</button>
+                        <button value={'all'} className="border-zinc-300 border-[1px] rounded-2xl text-sm py-1 px-3 text-black">Cinepolis</button>
+                        <button value={'all'} className="border-zinc-300 border-[1px] rounded-2xl text-sm py-1 px-3 text-black">Watchlist</button>
                     </div>
                     <Movie/>
                 </div>

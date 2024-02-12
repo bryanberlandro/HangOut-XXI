@@ -15,7 +15,11 @@ export function PromoLayout(){
         <div className="w-full px-[7%] flex flex-col gap-4">
             {total == 0 
             ? <div className="text-neutral-300 text-center mt-10">No Vouchers Found</div>
-            : <VoucherCard image={notif2} promo={'Gampang Cuan - Buy 1 Get 1 Free'} date={'Valid until 14-02-2024'}/>
+            : <VoucherCard 
+                image={notif2} 
+                promo={'Gampang Cuan - Buy 1 Get 1 Free'} 
+                date={'Valid until 14-02-2024'}
+                />
             }
         </div>
         </>
