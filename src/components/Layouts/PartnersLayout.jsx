@@ -32,7 +32,6 @@ export function PartnersLayout(){
             {partners.map(partner => (
                 <PartnersFrag image={partner.image} key={partner.id}/>
             ))}
-            <img src="../../assets/img/cgv-logo.png"/>
             </div>
         </div>
         </>
