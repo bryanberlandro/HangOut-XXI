@@ -42,11 +42,6 @@ export default function Navbar() {
                 <a href="">Contact</a>
             </li>
         </nav>
-        {/* <div className="items-center gap-6 hidden md:block">
-            <div className="text-neutral-300 text-sm flex gap-4">
-                <a href="">Login</a> | <a href="">Register ?</a>
-            </div>
-        </div> */}
         <div className="flex gap-7">
             <div onClick={handleShowNotification} className="relative">
             <FaBell className="text-black text-lg"/>

@@ -7,6 +7,7 @@ import Home from './pages/homePage';
 import LoginPage from './pages/loginPage';
 import RegisterPage from './pages/registerPage';
 import PromoPage from './pages/promoPage';
+import NotFoundPage from './pages/notFoundPage';
 
 // const router = createBrowserRouter([
 //   {
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <RouterProvider router={router}/> */}
     <BrowserRouter>
         <Routes>
+        <Route path='*' element={<NotFoundPage/>}/>
         <Route path='/' element={<Home/>} />
         <Route path='/voucher' element={<PromoPage/>} />
         <Route path='/login' element={<LoginPage/>} />

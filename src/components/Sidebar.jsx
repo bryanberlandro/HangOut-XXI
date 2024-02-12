@@ -10,18 +10,31 @@ export function Sidebar({onShowSidebar}){
                 : "w-56 h-[100vh] transition-all duration-500 -translate-x-96 fixed left-0 bottom-0 bg-neutral-100 z-40 flex flex-col justify-between pt-16 pb-6 px-4 xl:hidden"
             }>
             <ul>
-                <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
-                    <a href="">Home</a>
-                </li>
-                <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
-                    <a href="">TV Show</a>
-                </li>
-                <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
-                    <a href="">Movie</a>
-                </li>
-                <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
-                    <a href="">Contact</a>
-                </li>
+                <Link to="/">
+                    <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
+                        Home
+                    </li>
+                </Link>
+                <Link to="/movie">
+                    <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
+                        Movie
+                    </li>
+                </Link>
+                <Link to='/ticket'>
+                    <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
+                        Ticket
+                    </li>
+                </Link>
+                <Link to="/food">
+                    <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
+                        Food
+                    </li>
+                </Link>
+                <Link to="/cinema">
+                    <li className="w-full pl-4 py-4 rounded-sm text-black hover:bg-neutral-200">
+                        Cinema
+                    </li>
+                </Link>
             </ul>
             <div className="flex flex-col gap-3">
                 <Link to="/login" className="w-full flex flex-col">

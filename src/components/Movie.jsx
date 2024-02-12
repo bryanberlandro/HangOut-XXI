@@ -9,43 +9,53 @@ import poster5 from '../assets/img/poster-5.webp'
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Link } from "react-router-dom";
 
 
 export function Movie(){
     const posters = [
         {
+            'name': "The Beekeper",
             'image': poster1,
             'id': 1,
         },
         {
+            'name': "Agak Laen",
             'image': poster2,
             'id': 2,
         },
         {
+            'name': "Kraven",
             'image': poster3,
             'id': 3,
         },
         {
+            'name': "Anchika",
             'image': poster4,
             'id': 4,
         },
         {
+            'name': "Trinil",
             'image': poster5,
             'id': 5,
         },
         {
+            'name': "Trinil",
             'image': poster5,
             'id': 6,
         },
         {
+            'name': "Trinil",
             'image': poster5,
             'id': 7,
         },
         {
+            'name': "Trinil",
             'image': poster5,
             'id': 8,
         },
     ]
+
 
     return(
         <>
@@ -81,9 +91,11 @@ export function Movie(){
         className="h-[350px] w-full mt-8 md:h-[470px] md:mt-14 xl:h-[500px]"
         >
             {posters.map((movie) => (
-            <SwiperSlide key={movie.id}>
-                    <img src={movie.image} alt=""  className="w-full h-full object-cover"/>
-            </SwiperSlide>
+                <SwiperSlide key={movie.id}>
+                    <Link to={`/movie/${movie.name}`}  className="w-full h-full object-cover">
+                        <img src={movie.image} alt=""  className="w-full h-full object-cover"/>
+                    </Link>
+                </SwiperSlide>
             ))}
             
         </Swiper>
