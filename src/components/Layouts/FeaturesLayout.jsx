@@ -2,29 +2,25 @@
 import { Swiper, SwiperSlide } from "swiper/react"
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules"
 
-import featureImg1 from "../../assets/img/feature-1.webp"
-import featureImg2 from "../../assets/img/feature-2.webp"
-import featureImg3 from "../../assets/img/feature-3.webp"
-import featureImg4 from "../../assets/img/feature-4.webp"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 
 export function FeaturesLayout(){
     const features = [
         {
             id: 1,
-            image: featureImg1
+            image: '/img/feature-1.webp'
         },
         {
             id: 2,
-            image: featureImg2
+            image: '/img/feature-2.webp'
         },
         {
             id: 3,
-            image: featureImg3
+            image: '/img/feature-3.webp'
         },
         {
             id: 4,
-            image: featureImg4
+            image: '/img/feature-4.webp'
         },
     ]
 

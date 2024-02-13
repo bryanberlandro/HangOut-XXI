@@ -2,10 +2,6 @@
 // import Swiper core and required modules
 import { Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import banner1 from '../assets/img/banner-1.jpg'
-import banner2 from '../assets/img/banner-2.jpg'
-import banner3 from '../assets/img/promo-2.jpg'
-import banner4 from '../assets/img/promo-1.jpg'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,19 +13,19 @@ export function Carousel({showNotif}){
     const banners = [
         {
             id: 1,
-            image: banner1
+            image: '/img/banner-1.jpg'
         },
         {
             id: 2,
-            image: banner4
+            image: '/img/banner-1.jpg'
         },
         {
             id: 3,
-            image: banner3
+            image: '/img/banner-1.jpg'
         },
         {
             id: 4,
-            image: banner2
+            image: '/img/banner-1.jpg'
         },
     ]
 

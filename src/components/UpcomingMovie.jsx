@@ -1,34 +1,28 @@
 import { Swiper } from "../utils/Swiper";
 import { SwiperSlide } from "../utils/SwiperSlide";
-
-import upcomingMovie1 from '../assets/img/upcoming-1.jpg';
-import upcomingMovie2 from '../assets/img/upcoming-2.png';
-import upcomingMovie3 from '../assets/img/upcoming-3.jpg';
-import upcomingMovie4 from '../assets/img/upcoming-4.jpg';
-import upcomingMovie5 from '../assets/img/upcoming-5.jpg';
 import { FaFire } from "react-icons/fa6";
 
 export function UpcomingMovie(){
     const upcomingMovies = [
         {
             id: 1,
-            image: upcomingMovie1,
+            image: '/img/upcoming-1.jpg',
         },
         {
             id: 2,
-            image: upcomingMovie2,
+            image: '/img/upcoming-2.png',
         },
         {
             id: 3,
-            image: upcomingMovie3,
+            image: '/img/upcoming-3.jpg',
         },
         {
             id: 4,
-            image: upcomingMovie4,
+            image: '/img/upcoming-4.jpg',
         },
         {
             id: 5,
-            image: upcomingMovie5,
+            image: '/img/upcoming-5.jpg',
         },
     ]
 

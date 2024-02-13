@@ -1,27 +1,23 @@
 import { PartnersFrag } from "../Fragments/PartnersFrag";
 
-import partner1 from "../../assets/img/xxi-logo.png"
-import partner2 from "../../assets/img/dana-logo.png"
-import partner3 from "../../assets/img/cgv-logo.png"
-import partner4 from "../../assets/img/cinepolis-logo.png"
 
 export function PartnersLayout(){
     const partners = [
         {
             id: 1,
-            image: partner1
+            image: '/img/xxi-logo.png'
         },
         {
             id: 2,
-            image: partner4
+            image: '/img/cgv-logo.png'
         },
         {
             id: 3,
-            image: partner3
+            image: '/img/dana-logo.png'
         },
         {
             id: 4,
-            image: partner2
+            image: '/img/cinepolis-logo.png'
         },
     ]
     return (

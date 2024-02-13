@@ -35,3 +35,8 @@ swiper-slide{
 .swiper-slide-active{
   @apply after:content-['BUY_NOW'] after:bg-gradient-to-t after:from-sky-500 after:absolute after:bottom-0 after:text-white after:w-full after:font-semibold after:pt-12 after:pb-4 after:text-center after:animate-inEffect
 }
+
+.text-limit {
+  max-height: 100px;
+  overflow: hidden;
+}

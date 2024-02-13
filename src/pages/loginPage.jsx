@@ -2,8 +2,8 @@ import { Waves } from "../components/Elements/Waves/Waves";
 import FormLogin from "../components/Fragments/FormLogin";
 import { AuthLayout } from "../components/Layouts/AuthLayout";
 import { ButtonSEO } from "../components/Elements/Button/ButtonSEO";
-import googleLogo from "../assets/img/google.png";
-import emailLogo from "../assets/img/email.png";
+// import googleLogo from "../assets/img/google.png";
+// import emailLogo from "../assets/img/email.png";
 
 export default function LoginPage(){
     return (
@@ -11,8 +11,8 @@ export default function LoginPage(){
             
             <AuthLayout title={"Login"} type={"login"}>
                 <FormLogin/>
-                <ButtonSEO name={"Google"} image={googleLogo} />
-                <ButtonSEO name={"E-mail"} image={emailLogo} bgColor={"bg-neutral-800"} color={"white"}/>
+                <ButtonSEO name={"Google"} image={'/img/google.png'} />
+                <ButtonSEO name={"E-mail"} image={'/img/email.png'} bgColor={"bg-neutral-800"} color={"white"}/>
             </AuthLayout>
             <Waves/>
         </div>

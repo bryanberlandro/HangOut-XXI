@@ -1,5 +1,5 @@
 import { FaFire } from 'react-icons/fa6'
-import banner from '../assets/img/promo-1.jpg'
+// import banner from '../assets/img/promo-1.jpg'
 import { Ads } from './Ads'
 
 export function Promo(){
@@ -12,7 +12,7 @@ export function Promo(){
             </div>
             <p className="text-sm text-zinc-500 mt-1">Nonton lebih asik bareng cemilan favoritmu. Pesannya lebih mudah pake Hangout food !</p>
             <div className="w-full rounded-md h-32 relative overflow-hidden mt-4 md:h-52 md:mt-6">
-                <img src={banner} alt="" className='w-full h-full object-cover'/>
+                <img src={'/img/promo-1.jpg'} alt="" className='w-full h-full object-cover'/>
             </div>
         </div>
             <Ads/>
