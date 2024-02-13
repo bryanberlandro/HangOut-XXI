@@ -2,12 +2,16 @@ import { useParams } from "react-router-dom";
 import { MoviesData } from "../utils/MoviesData";
 import NotFoundPage from "./notFoundPage";
 import { Header } from "../components/Fragments/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MovieDetailPage(){
     const { id } = useParams();
     const [isReadMore, setIsReadMore] = useState(false)
     const selectedMovie = MoviesData.find((movie) => movie.id.toString() === id);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     function handleReadAll(){
         setIsReadMore(!isReadMore)
