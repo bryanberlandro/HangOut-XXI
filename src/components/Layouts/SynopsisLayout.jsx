@@ -9,7 +9,7 @@ export function SynopsisLayout({selectedMovie, actor, actorProfile}){
         <Synopsis
             selectedMovie={selectedMovie}
         />
-        <div className="mt-6">
+        <div className="mt-6 mb-8">
             <ActorsFrag
             actor={actor}
             actorProfile={actorProfile}

@@ -19,14 +19,14 @@ export function MovieSchedule(){
                 </div>
                 <div className="flex justify-between w-full">
                     <h1 className="text-sky-800 text-sm">2D</h1>
-                    <p className="font-semibold ">Rp35.000</p>
+                    <p className="font-medium">Rp35.000</p>
                 </div>
                 <div className="flex flex-wrap gap-3 text-sm">
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">13:00</button>
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">14:55</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">16:55</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">18:45</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">20:20</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">16:55</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">18:45</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">20:20</button>
                 </div>
             </div>
             <div className="py-4 px-4 w-full bg-white flex flex-col gap-4 mb-8">
@@ -44,14 +44,14 @@ export function MovieSchedule(){
                 </div>
                 <div className="flex justify-between w-full">
                     <h1 className="text-sky-800 text-sm">2D</h1>
-                    <p className="font-semibold ">Rp35.000</p>
+                    <p className="font-medium">Rp35.000</p>
                 </div>
                 <div className="flex flex-wrap gap-3 text-sm">
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">13:00</button>
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">14:55</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">16:55</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">18:45</button>
-                    <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">20:20</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">16:55</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">18:45</button>
+                    <button className="bg-white focus:bg-btn-focus focus:text-white border-[1px] py-1 px-5 rounded-md">20:20</button>
                 </div>
             </div>
         </div>

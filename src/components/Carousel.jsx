@@ -17,15 +17,15 @@ export function Carousel({showNotif}){
         },
         {
             id: 2,
-            image: '/img/banner-1.jpg'
+            image: '/img/banner-2.jpg'
         },
         {
             id: 3,
-            image: '/img/banner-1.jpg'
+            image: '/img/promo-2.jpg'
         },
         {
             id: 4,
-            image: '/img/banner-1.jpg'
+            image: '/img/promo-1.jpg'
         },
     ]
 
