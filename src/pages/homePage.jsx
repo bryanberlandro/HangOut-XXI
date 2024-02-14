@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 
 export default function Home(){
     const [showNotification, setShowNotification] = useState(false)
+    const userData = localStorage.getItem("username")
+    console.log(userData)
 
     function handleNotification(){
         setShowNotification(!showNotification)

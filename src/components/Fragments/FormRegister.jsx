@@ -3,9 +3,17 @@ import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
 
 export default function FormRegister(){
+    function handleRegister(e){
+        e.preventDefault()
+        localStorage.setItem('username', e.target.username.value)
+        localStorage.setItem('email', e.target.email.value)
+        localStorage.setItem('password', e.target.password.value)
+        window.location.href = '/login'
+    }
+
     return (
         <>
-        <div className="flex flex-col gap-5 mt-4">
+        <form onSubmit={handleRegister} className="flex flex-col gap-5 mt-4">
             <InputForm
             type="text"
             name="username"
@@ -30,9 +38,9 @@ export default function FormRegister(){
             htmlFor="password"
             value={"Password"}
             />
-            <ButtonEl value={"Create Your Account"}/>
+            <ButtonEl value={"Create Your Account"} onSubmit={() => handleRegister()}/>
             
-        </div>
+        </form>
         </>
     )
 }
