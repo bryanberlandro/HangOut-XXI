@@ -13,7 +13,7 @@ export function MovieSchedule(){
                         </div>
                         <p className="text-neutral-400 text-xs mt-1">Cinere Mall Lt.3</p>
                     </div>
-                    <div className="bg-gradient-to-l py-1 px-4 h-max from-yellow-700 to-yellow-400 rounded-sm">
+                    <div className="bg-gradient-to-l py-[2px] px-2 h-max from-yellow-700 to-yellow-400 rounded-sm">
                         <p className="text-xs text-white font-semibold tracking-wider ">XXI</p>
                     </div>
                 </div>
@@ -21,7 +21,7 @@ export function MovieSchedule(){
                     <h1 className="text-sky-800 text-sm">2D</h1>
                     <p className="font-semibold ">Rp35.000</p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3 text-sm">
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">13:00</button>
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">14:55</button>
                     <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">16:55</button>
@@ -38,7 +38,7 @@ export function MovieSchedule(){
                         </div>
                         <p className="text-neutral-400 text-xs mt-1">DMall Depok Lt.4</p>
                     </div>
-                    <div className="bg-gradient-to-l py-1 px-4 h-max from-red-700 to-red-400 rounded-sm">
+                    <div className="bg-gradient-to-l py-[2px] px-2 h-max from-red-700 to-red-400 rounded-sm">
                         <p className="text-xs text-white font-semibold tracking-wider ">CGV</p>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ export function MovieSchedule(){
                     <h1 className="text-sky-800 text-sm">2D</h1>
                     <p className="font-semibold ">Rp35.000</p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3 text-sm">
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">13:00</button>
                     <button disabled className="bg-neutral-200 text-neutral-400 py-1 px-5 rounded-md">14:55</button>
                     <button className="bg-white focus:bg-btn-focus focus:text-white border-2 py-1 px-5 rounded-md">16:55</button>
