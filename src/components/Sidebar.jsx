@@ -3,6 +3,15 @@ import { ButtonComp } from "./ButtonComp";
 
 /* eslint-disable react/prop-types */
 export function Sidebar({onShowSidebar}){
+    const userData = localStorage.getItem('email');
+
+    function handleLogOut(){
+        localStorage.removeItem('id')
+        localStorage.removeItem('username')
+        localStorage.removeItem('email')
+        localStorage.removeItem('password')
+    }
+
     return (
         <nav className=
             {onShowSidebar 
@@ -37,12 +46,24 @@ export function Sidebar({onShowSidebar}){
                 </Link>
             </ul>
             <div className="flex flex-col gap-3">
-                <Link to="/login" className="w-full flex flex-col">
-                <ButtonComp value={"Login"}/>
-                </Link>
-                <Link to="/register" className="w-full flex flex-col">
-                <ButtonComp value={"Register"} bgStyle={"white"} textCol={"black"}/>
-                </Link>
+                {
+                    userData
+                    ? (
+                        <Link to="/login" className="w-full flex flex-col">
+                            <ButtonComp onClick={() => handleLogOut()} value={"Log Out"}/>
+                        </Link>
+                    )
+                    : (
+                        <>
+                            <Link to="/login" className="w-full flex flex-col">
+                            <ButtonComp value={"Login"}/>
+                            </Link>
+                            <Link to="/register" className="w-full flex flex-col">
+                            <ButtonComp value={"Register"} bgStyle={"white"} textCol={"black"}/>
+                            </Link>
+                        </>
+                    )
+                }
             </div>
         </nav>
     ) 
