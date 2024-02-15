@@ -40,3 +40,49 @@ swiper-slide{
   max-height: 100px;
   overflow: hidden;
 }
+
+.inEffect{
+  animation: animate-in-out 3s
+}
+
+@keyframes animate-in-out{
+  0%{
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  35%{
+    transform: translateY(0);
+    opacity: 100;
+  }
+  50%{
+    transform: translateY(0);
+    opacity: 100;
+  }
+  75%{
+    transform: translateY(0);
+    opacity: 100;
+  } 
+  100%{
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+.outEffect{
+  animation: out-effect 6.2s;
+}
+
+@keyframes out-effect{
+  0%{
+    transform: scale(1);
+    opacity: 100;
+  }
+  80%{
+    transform: scale(1);
+    opacity: 100;
+  }
+  100%{
+    transform: scale(3);
+    opacity: 0;
+  }
+}

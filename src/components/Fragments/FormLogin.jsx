@@ -4,16 +4,30 @@ import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
 
 export default function FormLogin(){
-    const [isLogin, setIsLogin] = useState(false)
-    // const userName = localStorage.getItem('username')
+    const [isLogin, setIsLogin] = useState(true)
+    const userEmail = localStorage.getItem('email')
+    const userPassword = localStorage.getItem('password')
 
     function handleLogin(e){
         e.preventDefault()
-        const userEmail = localStorage.getItem('email')
-        const userPassword = localStorage.getItem('password')
         const emailLogin = e.target.email.value
         const passwordLogin = e.target.password.value
+        
+        if(emailLogin == "" && passwordLogin == ""){
+            setIsLogin(false)
+            return alert('Please fill this section below')
+        }
 
+        if(emailLogin == ""){
+            setIsLogin(false)
+            return alert('Please enter your email')
+        }
+
+        if(passwordLogin == ""){
+            setIsLogin(false)
+            return alert('Please enter your password')
+        }
+        
         if(userEmail !== emailLogin || userPassword !== passwordLogin){
             setIsLogin(false)
             alert('Email atau password yang anda masukan salah')
@@ -21,7 +35,7 @@ export default function FormLogin(){
         }
 
         setIsLogin(true)
-        if(isLogin){
+        if(isLogin && userEmail){
             window.location.href = '/'
         } else {
             alert('Email atau password yang anda masukan salah')

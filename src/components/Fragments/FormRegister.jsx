@@ -3,11 +3,29 @@ import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
 
 export default function FormRegister(){
+
     function handleRegister(e){
         e.preventDefault()
-        localStorage.setItem('username', e.target.username.value)
-        localStorage.setItem('email', e.target.email.value)
-        localStorage.setItem('password', e.target.password.value)
+        const target = e.target
+        const userName = target.username.value
+        const email = target.email.value
+        const password = target.password.value
+        const id = Math.floor(Math.random() * 100)
+
+        if(userName == ""){
+            return alert("Please enter your username")
+        }
+        if(email == ""){
+            return alert("Please enter your email")
+        }
+        if(password == ""){
+            return alert("Please enter your password")
+        }
+
+        localStorage.setItem('id', id)
+        localStorage.setItem('username', userName)
+        localStorage.setItem('email', email)
+        localStorage.setItem('password', password)
         window.location.href = '/login'
     }
 
