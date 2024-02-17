@@ -7,6 +7,7 @@ export function Sidebar({onShowSidebar}){
 
     function handleLogOut(){
         localStorage.removeItem('id')
+        localStorage.removeItem('fullname')
         localStorage.removeItem('username')
         localStorage.removeItem('email')
         localStorage.removeItem('password')
