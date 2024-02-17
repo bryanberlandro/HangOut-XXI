@@ -11,7 +11,7 @@ export function Synopsis({selectedMovie}){
     return (
         <>
         <div className="text-sm">
-                <p className={`text-neutral-600 ${isReadMore ? '' : 'text-limit'}`}>{selectedMovie.synopsis}</p>
+                <p className={`text-neutral-600 transition-all duration-200 ${isReadMore ? 'h-max' : 'text-limit'}`}>{selectedMovie.synopsis}</p>
                 <button 
                 onClick={() => handleReadAll()}
                 className="underline underline-offset-2 text-btn mt-2"

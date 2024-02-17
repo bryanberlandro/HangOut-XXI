@@ -39,6 +39,7 @@ swiper-slide{
 .text-limit {
   max-height: 100px;
   overflow: hidden;
+  transition-all: 1s;
 }
 
 .inEffect{

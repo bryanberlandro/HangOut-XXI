@@ -48,21 +48,21 @@ export function SelectedMovieLayout({selectedMovie}){
                 </div>
             </div>
         </div>
-        <div className="w-full border-b  flex mt-3 justify-between bg-white">
+        <div className="w-full border-b sticky top-12  flex mt-3 justify-between bg-white">
             <div 
             onClick={() => handleShowSynopsis()} 
-            className={`py-2 w-[50%] transition-all duration-150 border-b-2 ${isActive ? 'border-btn' : 'text-neutral-500'} text-center cursor-pointer`}
+            className={`py-3 w-[50%] transition-all duration-150 border-b-2 ${isActive ? 'border-btn' : 'text-neutral-500'} text-center cursor-pointer`}
             >
                 <h1>SINOPSIS</h1>
             </div>
             <div 
             onClick={() => handleShowSchedule()}
-            className={`py-2 w-[50%] transition-all duration-150 text-center border-b-2 ${isActive ? 'text-neutral-500' : 'border-btn'} cursor-pointer`}
+            className={`py-3 w-[50%] transition-all duration-150 text-center border-b-2 ${isActive ? 'text-neutral-500' : 'border-btn'} cursor-pointer`}
             >
                 <h1>JADWAL</h1>
             </div>
         </div>
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden mb-16">
             {
                 isActive 
                 ? <SynopsisLayout
@@ -70,7 +70,9 @@ export function SelectedMovieLayout({selectedMovie}){
                 actor={actor}
                 actorProfile={actorProfile}
                 />
-                : <MovieSchedule/>
+                : <MovieSchedule
+                selectedMovie={selectedMovie}
+                />
             }
         </div>
         {
