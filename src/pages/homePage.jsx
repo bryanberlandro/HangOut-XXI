@@ -3,36 +3,23 @@ import { Movie } from "../components/Movie";
 import { FaLocationDot, FaTicket } from "react-icons/fa6";
 import { Promo } from "../components/Promo";
 import { UpcomingMovie } from "../components/UpcomingMovie";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Fragments/Navbar";
 import { FeaturesLayout } from "../components/Layouts/FeaturesLayout";
 import { useEffect, useState } from "react";
 import { Notifications } from "../components/Notifications";
 import { PartnersLayout } from "../components/Layouts/PartnersLayout";
 import { FooterLayout } from "../components/Layouts/FooterLayout";
 import { Link } from "react-router-dom";
-import { WelcomeLoad } from "../components/Fragments/WelcomeLoad";
+import { Notification } from "../components/Elements/Notification/Notification";
 
 export default function Home(){
     const [showNotification, setShowNotification] = useState(false)
-    const [isLogin, setIsLogin] = useState(null)
-    const [showLoad, setShowLoad] = useState(true)
-    
-    useEffect(() => {
-        const userData = localStorage.getItem("username")
-        if(userData){
-            setIsLogin(userData)
-        } else {
-            setShowLoad(false)
-        }
-    }, [])
+    const [isLogin, setIsLogin] = useState(false)
+    const userIsLogin = localStorage.getItem('username')
 
     useEffect(() => {
-        const welcomeLoadTimer = setTimeout(() => {
-            setShowLoad(false)
-        }, 6000)
-
-        return () => {
-            clearTimeout(welcomeLoadTimer)
+        if(userIsLogin){
+            setIsLogin(true)
         }
     }, [])
 
@@ -46,11 +33,11 @@ export default function Home(){
 
     return (
         <>
-        {showLoad 
-        ? <WelcomeLoad username={isLogin}/>
-        :
-            <>
-            <Navbar/>
+            <Navbar username={userIsLogin}/>
+            {isLogin 
+            ? <Notification display={'hidden'}/>
+            : <Notification display={'flex'}/>
+            }
             <main className="pt-14">
                 <div className="w-full py-5 flex justify-between px-[5%] md:px-[8%]">
                     <div className="flex gap-1 items-center cursor-pointer">
@@ -92,11 +79,6 @@ export default function Home(){
                 </div>
             </main>
             <FooterLayout/>
-            </>
-        }
-        {/* {!showLoad && 
-            
-        } */}
         </>
     )
 }

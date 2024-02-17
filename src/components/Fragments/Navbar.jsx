@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
-import { Sidebar } from "./Sidebar"
+import { Sidebar } from "../Sidebar"
 import { HiMenu } from "react-icons/hi";
-import { FaBell } from "react-icons/fa6";
-import { Notifications } from "./Notifications";
+import { FaBell, FaUser, FaUserNinja } from "react-icons/fa6";
+import { Notifications } from "../Notifications";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({username}) {
     const [showSidebar, setShowSidebar] = useState(false)
     const [notifications, setNotifications] = useState(2)
     const [showNotif, setShowNotif] = useState(false)
@@ -42,12 +44,18 @@ export default function Navbar() {
                 <a href="">Contact</a>
             </li>
         </nav>
-        <div className="flex gap-7">
+        <div className="flex gap-6 items-center">
+            <Link to={'/profile'}>
+                <div className="flex gap-2 items-center cursor-pointer">
+                    {/* <h1 className="text-xs">{username}</h1> */}
+                    <FaUser/>
+                </div>
+            </Link>
             <div onClick={handleShowNotification} className="relative">
-            <FaBell className="text-black text-lg"/>
-            <div className="absolute -top-2 -right-2 bg-btn rounded-full flex items-center h-4 w-4 justify-center text-white text-xs">
-                {notifications}
-            </div>
+                <FaBell className="text-black text-lg"/>
+                <div className="absolute -top-2 -right-2 bg-btn rounded-full flex items-center h-4 w-4 justify-center text-white text-xs">
+                    {notifications}
+                </div>
             </div>
             <HiMenu className="text-black xl:hidden text-lg"  onClick={handleShowSidebar}/>
         </div>
