@@ -10,6 +10,8 @@ import PromoPage from './pages/promoPage';
 import NotFoundPage from './pages/notFoundPage';
 import MovieDetailPage from './pages/movieDetailPage';
 import ProfilePage from './pages/profilePage';
+import FoodPage from './pages/productPage';
+import ProductDetails from './pages/productDetails';
 
 // const router = createBrowserRouter([
 //   {
@@ -38,6 +40,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/voucher' element={<PromoPage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
+        <Route path='/food' element={<FoodPage/>}/>
+        <Route path='/food/:id' element={<ProductDetails/>}/>
         <Route path='/movie/:id' element={<MovieDetailPage/>}/>
         </Routes>
     </BrowserRouter>

@@ -39,7 +39,7 @@ export default function Home(){
             : <Notification display={'flex'}/>
             }
             <main className="pt-14">
-                <div className="w-full py-5 flex justify-between px-[5%] md:px-[8%]">
+                <div className="w-full py-5 flex justify-between px-[5%] relative md:px-[8%]">
                     <div className="flex gap-1 items-center cursor-pointer">
                         <FaLocationDot className="text-btn xl:text-lg"/>
                         <h1 className="font-medium xl:text-lg xl:font-bold">DEPOK</h1>

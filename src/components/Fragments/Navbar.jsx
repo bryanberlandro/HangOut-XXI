@@ -44,9 +44,9 @@ export default function Navbar({username}) {
                 <a href="">Contact</a>
             </li>
         </nav>
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-5 items-center">
             <Link to={'/profile'}>
-                <div className="flex gap-2 items-center cursor-pointer">
+                <div className="flex hover:bg-zinc-200 rounded-full p-1 gap-2 items-center cursor-pointer">
                     {/* <h1 className="text-xs">{username}</h1> */}
                     <FaUser/>
                 </div>

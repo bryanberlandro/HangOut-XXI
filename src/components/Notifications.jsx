@@ -10,13 +10,13 @@ export function Notifications({onShowNotification, returnNotification}){
         <div 
         className=
         {onShowNotification
-            ? "w-full fixed z-[999] bg-white h-[100dvh] inset-0 transition-all duration-300 translate-x-0"
-            : "w-full fixed z-[999] bg-white h-[100dvh] inset-0 transition-all duration-300 translate-x-[500px]"
+            ? "w-full fixed z-[999] bg-white h-[100dvh] transition-all duration-300 translate-x-0 xl:w-[40%] xl:right-0 xl:translate-x-0"
+            : "w-full fixed z-[999] bg-white h-[100dvh] transition-all duration-300 translate-x-[800px] xl:w-[40%] xl:right-0 xl:translate-x-[1000px]"
         }
         
         >
             <div className="w-full relative flex items-center bg-white border-b-2 py-3 justify-center ">
-            <FaArrowLeft onClick={returnNotification} className="absolute left-[5%] text-lg"/>
+            <FaArrowLeft onClick={returnNotification} className="absolute cursor-pointer left-[5%] text-lg"/>
             <h1 className="text-xl font-semibold text-black contrast-125">HANGOUT.
                 <span 
                 className="bg-gradient-to-br from-btn to-btn-focus bg-clip-text text-transparent">XXI

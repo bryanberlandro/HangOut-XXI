@@ -32,7 +32,6 @@ export function FeaturesLayout(){
             <Swiper
             modules={[Pagination, Scrollbar, A11y, Autoplay, Navigation]}
             spaceBetween={50}
-            slidesPerView={1}
             autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -41,6 +40,20 @@ export function FeaturesLayout(){
                 prevEl: ".swiper-button-prevs",
                 nextEl: ".swiper-button-nexts",
             }}
+            breakpoints={{
+                360: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+            }}
             loop={true}
             pagination={{ clickable: true }}
             // onSwiper={(swiper) => console.log(swiper)}
@@ -48,18 +61,18 @@ export function FeaturesLayout(){
             className='w-full mt-8 shadow-multiple border-2 rounded-lg overflow-hidden'
             >
                 {features.map((feature) => (
-                <SwiperSlide key={feature.id} className="after:content-[''] after:bg-none">
-                    <div className='h-52 md:h-64 w-full relative overflow-hidden xl:h-[500px]'>
+                <SwiperSlide key={feature.id} className="after:content-[''] after:bg-none ">
+                    <div className='h-52 w-full relative overflow-hidden md:h-64 xl:h-[500px]'>
                         <img src={feature.image} alt="" className='w-full h-full object-cover'/>
                     </div>
                 </SwiperSlide>
                 ))}
             </Swiper>
-                <div className="flex justify-between mt-5 px-10">
-                    <div className="swiper-button-prevs z-10 text-black border-2 border-sky-300 hover:border-btn-focus hover:scale-[.98] transition-all duration-200 focus:scale-95 rounded-full flex justify-center items-center w-10 h-10">
+                <div className="flex justify-between mt-5 px-10 md:mt-7">
+                    <div className="swiper-button-prevs z-10 text-black border-2 border-sky-300 hover:border-btn-focus hover:scale-[.98] transition-all duration-200 focus:scale-95 rounded-full flex justify-center items-center w-10 h-10 md:w-12 md:h-12">
                         <FaChevronLeft className="text-btn"/>
                     </div>
-                    <div className="swiper-button-nexts z-10 text-black border-2 border-sky-300 hover:border-btn-focus hover:scale-[.98] transition-all duration-200 focus:scale-95 rounded-full flex justify-center items-center w-10 h-10">
+                    <div className="swiper-button-nexts z-10 text-black border-2 border-sky-300 hover:border-btn-focus hover:scale-[.98] transition-all duration-200 focus:scale-95 rounded-full flex justify-center items-center w-10 h-10 md:w-12 md:h-12">
                         <FaChevronRight className="text-btn"/>
                     </div>
                 </div>

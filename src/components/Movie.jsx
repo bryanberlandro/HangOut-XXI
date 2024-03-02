@@ -42,7 +42,10 @@ export function Movie(){
         className="h-[350px] w-full mt-8 md:h-[470px] md:mt-14 xl:h-[500px]"
         >
             {MoviesData.map((movie) => (
-                <SwiperSlide key={movie.id}>
+                <SwiperSlide key={movie.id} className="relative">
+                    {/* {schedule.map(s => (
+                        <div key={s.id} className="absolute w-10 h-5 bg-red-300">{s.cinema}</div>
+                    ))} */}
                     <Link to={`/movie/${movie.id}`}  className="w-full h-full object-cover">
                         <img src={movie.image} alt=""  className="w-full h-full object-cover"/>
                     </Link>

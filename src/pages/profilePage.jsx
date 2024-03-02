@@ -1,5 +1,5 @@
 import {  FaPlay, FaShare, FaStar, FaThumbsUp, FaTicket } from "react-icons/fa6";
-import { RiLogoutBoxFill, RiLogoutCircleFill } from "react-icons/ri";
+import { RiLogoutBoxFill } from "react-icons/ri";
 import { ListItem } from "../components/Elements/ListItem/ListItem";
 import { Header } from "../components/Fragments/Header";
 import { Link } from "react-router-dom";
@@ -51,9 +51,11 @@ export default function ProfilePage(){
                     <ListItem name={'Bagikan HANGOUT.XXI & Dapatkan Poin'}>
                         <FaShare className="text-neutral-500"/>
                     </ListItem>
-                    <ListItem name={'Log Out'}>
-                        <RiLogoutBoxFill className="text-neutral-500"/>
-                    </ListItem>
+                    <Link to={'/login'}>
+                        <ListItem name={'Log Out'}>
+                            <RiLogoutBoxFill className="text-neutral-500"/>
+                        </ListItem>
+                    </Link>
                 </div>
             </div>
             <div className="w-full mt-20 flex justify-center items-center">
