@@ -10,7 +10,9 @@ import 'swiper/css/scrollbar';
 import { ProdCard } from "../components/Elements/ProductCard/ProdCard";
 import { FilterBtnLayout } from "../components/Layouts/FilterBtnLayout";
 import { useEffect, useState } from "react";
-import { FoodData } from "../utils/FoodData";
+import { FoodData } from "../data/FoodData";
+import { TabBar } from "../components/Fragments/TabBar";
+import { Rupiah } from "../utils/Rupiah";
 
 export default function FoodPage(){
     const [products, setProducts] = useState([])
@@ -75,21 +77,26 @@ export default function FoodPage(){
             <div className="w-full overflow-hidden mt-2">
                 <FilterBtnLayout/>
             </div>
-            <div className="w-full flex flex-wrap justify-between mt-4 gap-y-4">
-                {products.map(product => (
-                    <ProdCard
-                    key={product.id}
-                    image={product.image}
-                    alt={product.name}
-                    productName={product.name}
-                    cinema={product.cinema}
-                    size={product.size}
-                    price={product.price}
-                    id={product.id}
-                    />
-                ))}
+            <div className="mt-4">
+                <h1 className="font-semibold text-sm">Rekomendasi untukmu</h1>
+                <p className="text-xs">Makan enak, mood enak, nonton jadi enak</p>
+                <div className="w-full flex flex-wrap justify-between mt-4 gap-y-4">
+                    {products.map(product => (
+                        <ProdCard
+                        key={product.id}
+                        image={product.image}
+                        alt={product.name}
+                        productName={product.name}
+                        cinema={product.cinema}
+                        size={product.size}
+                        price={Rupiah(product.price)}
+                        id={product.id}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
+        <TabBar/>
         </>
     )
 }

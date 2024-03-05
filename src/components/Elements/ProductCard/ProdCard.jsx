@@ -10,13 +10,13 @@ export function ProdCard({image, alt, productName, cinema, price, id}){
         <>
         <Link to={`/food/${id}`} className="rounded-md overflow-hidden shadow-soft w-[48%] max-h-[270px] p-2 bg-white">
             <div className="w-full h-full">
-                    <div className="w-full overflow-hidden relative h-[65%] rounded-md">
+                    <div className="w-full overflow-hidden relative h-[60%] rounded-md">
                         <ProdImage
                         image={image}
                         alt={alt}
                         />
                     </div>
-                    <div className="w-full h-[35%] pt-2 flex flex-col justify-between">
+                    <div className="w-full h-[40%] pt-2 flex flex-col justify-between">
                         <div>
                             <ProdName
                             productName={productName}

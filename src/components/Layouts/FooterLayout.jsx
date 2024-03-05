@@ -3,9 +3,9 @@ import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa6"
 export function FooterLayout(){
     return (
         <>
-        <div className="w-full px-[7%] pt-7 pb-10 text-center bg-sky-800 text-white flex flex-col gap-8 md:items-start md:text-start">
-            <div className="flex w-full justify-between">
-                <div className="w-[50%]">
+        <div className="w-full px-[7%] pt-7 pb-10 text-center bg-sky-800 text-white flex items-center justify-center flex-col gap-8 md:items-start md:text-start">
+            <div className="md:flex md:w-full md:justify-between">
+                <div className="md:w-[50%]">
                     <h1 className="text-xl font-semibold text-white contrast-125 md:text-4xl">HANGOUT.<span className="bg-gradient-to-br from-btn to-btn-focus bg-clip-text text-transparent font-bold">XXI</span></h1>
                     <p className="text-sm font-normal text-neutral-300 mt-3 md:w-64">Great App For Movie Lovers in Indonesia! Platform From Cinema To Buy Movie Ticket And Choose Your Seat</p>
                 </div>
@@ -16,7 +16,7 @@ export function FooterLayout(){
                     <p>VIDEO & TRAILERS</p>
                 </div>
             </div>
-            <div className="flex justify-between w-full md:gap-4">
+            <div className="flex justify-between md:w-full md:gap-4">
                 <div className="hidden md:flex flex-col gap-3 text-neutral-300 text-sm">
                     <p>CAREERS</p>
                     <p>CONTACT US</p>

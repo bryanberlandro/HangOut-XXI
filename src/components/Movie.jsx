@@ -4,7 +4,7 @@ import { SwiperSlide } from "../utils/SwiperSlide";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from "react-router-dom";
-import { MoviesData } from "../utils/MoviesData";
+import { MoviesData } from "../data/MoviesData";
 
 
 export function Movie(){
