@@ -12,6 +12,7 @@ import MovieDetailPage from './pages/movieDetailPage';
 import ProfilePage from './pages/profilePage';
 import FoodPage from './pages/productPage';
 import ProductDetails from './pages/productDetails';
+import CartContextProvider from './context/CartItem';
 
 // const router = createBrowserRouter([
 //   {
@@ -32,18 +33,20 @@ import ProductDetails from './pages/productDetails';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <RouterProvider router={router}/> */}
-    <BrowserRouter>
-        <Routes>
-        <Route path='*' element={<NotFoundPage/>}/>
-        <Route path='/' element={<Home/>} />
-        <Route path='/profile' element={<ProfilePage/>}/>
-        <Route path='/voucher' element={<PromoPage/>} />
-        <Route path='/login' element={<LoginPage/>} />
-        <Route path='/register' element={<RegisterPage/>} />
-        <Route path='/food' element={<FoodPage/>}/>
-        <Route path='/food/:id' element={<ProductDetails/>}/>
-        <Route path='/movie/:id' element={<MovieDetailPage/>}/>
-        </Routes>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+          <Routes>
+          <Route path='*' element={<NotFoundPage/>}/>
+          <Route path='/' element={<Home/>} />
+          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='/voucher' element={<PromoPage/>} />
+          <Route path='/login' element={<LoginPage/>} />
+          <Route path='/register' element={<RegisterPage/>} />
+          <Route path='/food' element={<FoodPage/>}/>
+          <Route path='/food/:id' element={<ProductDetails/>}/>
+          <Route path='/movie/:id' element={<MovieDetailPage/>}/>
+          </Routes>
+      </BrowserRouter>
+    </CartContextProvider>
   </React.StrictMode>,
 )

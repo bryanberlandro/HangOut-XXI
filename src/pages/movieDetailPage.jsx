@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { MoviesData } from "../utils/MoviesData";
 import NotFoundPage from "./notFoundPage";
 import { Header } from "../components/Fragments/Header";
+import { MoviesData } from "../data/MoviesData"
 import { useEffect } from "react";
 import { SelectedMovieLayout } from "../components/Layouts/SelectedMovieLayout";
 

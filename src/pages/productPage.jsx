@@ -9,18 +9,22 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { ProdCard } from "../components/Elements/ProductCard/ProdCard";
 import { FilterBtnLayout } from "../components/Layouts/FilterBtnLayout";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FoodData } from "../data/FoodData";
 import { TabBar } from "../components/Fragments/TabBar";
 import { Rupiah } from "../utils/Rupiah";
+import { CartList } from "../context/CartItem";
 
 export default function FoodPage(){
     const [products, setProducts] = useState([])
+    // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const {cart, setCart} = useContext(CartList)
 
+    console.log(cart)
+    
     useEffect(() => {
         setProducts(FoodData)
     }, [])
-    console.log(products)
 
     const banners = [
         {
@@ -96,7 +100,7 @@ export default function FoodPage(){
                 </div>
             </div>
         </div>
-        <TabBar/>
+        <TabBar item={cart}/>
         </>
     )
 }
