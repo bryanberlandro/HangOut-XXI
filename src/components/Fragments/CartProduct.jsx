@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaTrash, FaXmark } from "react-icons/fa6";
+import { CartList } from "../../context/CartItem";
 
 // eslint-disable-next-line react/prop-types
 export function CartProduct({products, showCart, onClick}){
     const [totalPrice, setTotalPrice] = useState(0)
+    const {cart, setCart} = useContext(CartList)
+    const [limit, setLimit] = useState(false)
+    console.log(cart)
     
     useEffect(() => {
         if(products){
@@ -13,6 +17,63 @@ export function CartProduct({products, showCart, onClick}){
         }
     }, [products])
 
+    function handlePlusItem(prod){
+        const isSameItem = cart.find(c => c.name === prod.name)
+        if(isSameItem){
+            if(isSameItem.quantity === 0 || isSameItem.stock === 0){
+                setLimit(true)
+                return
+            } else {
+            const updateItem = {
+                ...isSameItem,
+                quantity: isSameItem.quantity + 1,
+                stock: isSameItem.stock - 1
+            }
+            const updateProductList = cart.map(item => 
+                item.id === isSameItem.id ? updateItem : item    
+            )
+            setCart(updateProductList)
+            }
+        }
+    }
+
+    function handleMinusItem(prod){
+        const isSameItem = cart.find(c => c.name === prod.name)
+        if(isSameItem){
+            if(isSameItem.quantity === 0 || isSameItem.stock === 0){
+                setLimit(true)
+                return
+            } else{
+                const updateItem = {
+                    ...isSameItem,
+                    quantity: isSameItem.quantity - 1,
+                    stock: isSameItem.stock + 1
+                }
+                const updateProductList = cart.map(item => 
+                    item.id === isSameItem.id ? updateItem : item    
+                )
+                setCart(updateProductList)
+                return
+            }
+        }
+    }
+
+    function handleRemoveItem(prod){
+        const isSameItem = cart.find(c => c.name === prod.name)
+        if(isSameItem){
+            const updatedCart = cart.filter((c) => c.id !== prod.id)
+            setCart(updatedCart)
+            const localData = localStorage.getItem('cart')
+            const parsedLocalData = JSON.parse(localData)
+            console.log('Before removal - parsedLocalData:', parsedLocalData);
+
+            delete parsedLocalData[prod.id]
+            console.log('After removal - parsedLocalData:', parsedLocalData);
+
+            localStorage.setItem('cart', JSON.stringify(parsedLocalData))
+        }
+    }
+    
     if(products == null){
         return(<><h1>No Found</h1></>)
     } 
@@ -34,17 +95,23 @@ export function CartProduct({products, showCart, onClick}){
                             className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="max-w-52">
+                        <div className="max-w-32">
                             <h1 className="font-medium text-sm">{prod.name}</h1>
-                            <p className="text-xs text-neutral-600">{prod.details}</p>
+                            <p className="text-xs text-neutral-600">{prod.details.substring(0,25)} ...</p>
                         <div className="flex flex-col mt-4">
                             <div>
                                 <p className="text-xs text-neutral-500">stock {prod.stock}</p>
                             </div>
                             <div className="h-max flex mt-1">
-                                <button className="border-2 py-1 px-4 text-xs">-</button>
-                                <div className="border-2 py-1 px-2 text-xs">{prod.quantity}</div>
                                 <button 
+                                onClick={() => handleMinusItem(prod)} 
+                                className="border-2 py-1 px-4 text-xs"
+                                disabled={limit ? true : false}
+                                >-</button>
+                                <div className="border-2 py-1 px-2 text-xs">{prod.quantity}</div>
+                                <button
+                                onClick={() => handlePlusItem(prod)} 
+                                disabled={limit ? true : false}
                                 className="border-2 py-1 px-4 text-xs">+</button>
                             </div>
                         </div>
@@ -54,7 +121,7 @@ export function CartProduct({products, showCart, onClick}){
                         <p className="text-xs text-neutral-500">quantity: {prod.quantity}</p>
                         <div className="flex items-center gap-2">
                             <h1 className="font-semibold">Rp. {prod.price * prod.quantity}</h1>
-                            <FaTrash className="text-neutral-400"/>
+                            <FaTrash onClick={() => handleRemoveItem(prod)} className="text-neutral-400"/>
                         </div>
                     </div>
                 </div>
