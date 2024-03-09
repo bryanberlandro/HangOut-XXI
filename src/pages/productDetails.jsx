@@ -14,15 +14,50 @@ export default function ProductDetails(){
     
     function handleAddToCart(){
         if(product){
-            setProduct([...product, isSameId])
+            // Apakah ada produk dengan id yang sama di dalam product
+            const existingProduct = product.find(prod => prod.id === isSameId.id)
+            if(existingProduct){
+                // Produk sudah ada, tambah quantity
+                const updateProduct = {
+                    ...existingProduct,
+                    quantity: existingProduct.quantity + 1,
+                    stock: existingProduct.stock - 1
+                }
+                // Update Product di dalam keranjang
+                const updateProductList = product.map(item => 
+                    item.id === isSameId.id ? updateProduct : item    
+                )
+
+                setProduct(updateProductList)
+            } else {
+                // Produk belum ada di keranjang, tambah produk baru
+                setProduct(
+                    [...product, {
+                        ...isSameId, 
+                        quantity: 1, 
+                        stock: product.stock - 1
+                        }
+                    ])
+            }
             window.location.href = '/food'
-            return
         } else {
-            setProduct([isSameId])
+            // Tidak ada produk sama sekali, tambahkan produk pertama kedaalam keranjang
+            setProduct([{...isSameId, quantity: 1}])
             window.location.href = '/food'
-            return
         }
+
+        // if(product){
+        //     setProduct([...product, isSameId])
+        //     window.location.href = '/food'
+        //     return
+        // } else {
+        //     setProduct([isSameId])
+        //     window.location.href = '/food'
+        //     return
+        // }
     }
+
+    console.log(product)
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(product))
@@ -71,7 +106,7 @@ export default function ProductDetails(){
             </div>
 
         </div>
-        <div onClick={handleAddToCart} className="w-full py-4 flex justify-center text-white font-semibold bg-btn mt-4 fixed bottom-0">
+        <div onClick={handleAddToCart} className="cursor-pointer w-full py-4 flex justify-center text-white font-semibold bg-btn mt-4 fixed bottom-0">
             <h1>Add To Cart</h1>
         </div>
         </>
