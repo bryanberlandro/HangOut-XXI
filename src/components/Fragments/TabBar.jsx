@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
 import { Rupiah } from "../../utils/Rupiah"
+import { Link } from "react-router-dom"
 
-export const TabBar = ({item, onClick}) => {
+export const TabBar = ({item, to}) => {
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalItem, setTotalItem] = useState(0)
 
@@ -23,11 +24,20 @@ export const TabBar = ({item, onClick}) => {
 
 
     if(item == null){
-        return <h1>No item</h1>
+        return (
+            <>
+            <div onClick={onClick} className="w-full cursor-pointer fixed flex justify-center items-center bottom-0 pb-2 px-4 h-max">
+            <div className="w-full h-12 rounded-full py-7 px-10 bg-btn relative z-50 text-white flex items-center justify-between ">
+                <h1>No Item</h1>
+            </div>
+            </div>
+            </>
+        )
     }
     return(
         <>
-        <div onClick={onClick} className="w-full cursor-pointer fixed flex justify-center items-center bottom-0 pb-2 px-4 h-max">
+        <div className="w-full cursor-pointer fixed flex justify-center items-center bottom-0 pb-2 px-4 h-max">
+            <Link to={to}>
             <div className="w-full h-12 rounded-full py-7 px-10 bg-btn relative z-50 text-white flex items-center justify-between ">
                 <div>
                     <h1 className="font-medium text-sm">{totalItem} item</h1>
@@ -37,6 +47,7 @@ export const TabBar = ({item, onClick}) => {
                     <h1 className="font-medium">{Rupiah(totalPrice)}</h1>
                 </div>
             </div>
+            </Link>
         </div>
         </>
     )

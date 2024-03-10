@@ -14,7 +14,6 @@ import { FoodData } from "../data/FoodData";
 import { TabBar } from "../components/Fragments/TabBar";
 import { Rupiah } from "../utils/Rupiah";
 import { CartList } from "../context/CartItem";
-import { CartProduct } from "../components/Fragments/CartProduct";
 
 export default function FoodPage(){
     const banners = [
@@ -37,15 +36,10 @@ export default function FoodPage(){
     ]
     const [products, setProducts] = useState([])
     const {cart, setCart} = useContext(CartList)
-    const [showCart, setShowCart] = useState(false)
 
     useEffect(() => {
         setProducts(FoodData)
     }, [])
-
-    function handleShowCart(){
-        setShowCart(!showCart)
-    }
 
     return(
         <>
@@ -102,14 +96,9 @@ export default function FoodPage(){
                 </div>
             </div>
         </div>
-        <CartProduct
-        products={cart}
-        showCart={showCart}
-        onClick={handleShowCart}
-        />
         <TabBar 
         item={cart}
-        onClick={handleShowCart}
+        to={'/cart'}
         />
         </>
     )
