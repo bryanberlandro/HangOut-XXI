@@ -11,7 +11,7 @@ export const TabBar = ({item, to}) => {
         if(item){
         const sum = item.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
         setTotalPrice(sum)
-        }
+        } 
     }, [item])
 
     useEffect(() => {
@@ -22,30 +22,26 @@ export const TabBar = ({item, to}) => {
     }, [item])
 
 
-
-    if(item == null){
-        return (
-            <>
-            <div onClick={onClick} className="w-full cursor-pointer fixed flex justify-center items-center bottom-0 pb-2 px-4 h-max">
-            <div className="w-full h-12 rounded-full py-7 px-10 bg-btn relative z-50 text-white flex items-center justify-between ">
-                <h1>No Item</h1>
-            </div>
-            </div>
-            </>
-        )
-    }
     return(
         <>
-        <div className="w-full cursor-pointer fixed flex justify-center items-center bottom-0 pb-2 px-4 h-max">
+        <div className={`w-full cursor-pointer fixed flex justify-center items-center bottom-0 transition duration-1000 pb-2 px-4 h-max ${item !== null ? 'translate-y-0':'translate-y-96'}`}>
             <Link to={to}>
             <div className="w-full h-12 rounded-full py-7 px-10 bg-btn relative z-50 text-white flex items-center justify-between ">
-                <div>
-                    <h1 className="font-medium text-sm">{totalItem} item</h1>
-                    <p className="text-neutral-300 text-xs">{item[0].name} and {item.length > 0 ? `${item.length - 1} more item...` : ''}</p>
+                {item !== null ? (
+                <div className="flex">
+                    <div>
+                        <h1 className="font-medium text-sm">{totalItem} item</h1>
+                        <p className="text-neutral-300 text-xs">{item[0].name} {item.length > 0 ? `and ${item.length - 1} more item...` : ''}</p>
+                    </div>
+                    <div className="flex items-center">
+                        <h1 className="font-medium">{Rupiah(totalPrice)}</h1>
+                    </div>
                 </div>
-                <div className="flex items-center">
-                    <h1 className="font-medium">{Rupiah(totalPrice)}</h1>
-                </div>
+                )
+                : (
+                    <div><h1>No item</h1></div>
+                )
+            }
             </div>
             </Link>
         </div>

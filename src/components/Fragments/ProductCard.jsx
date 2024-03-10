@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa6";
 export function ProductCard({prod, limit, minusItem, removeItem, plusItem, disable}){
     return(
         <>
-        <div key={prod.id} className="w-full flex border-b-2 border-neutral-100 py-3 justify-between">
+        <div key={prod.id} className="w-full flex border-b-2 border-neutral-100 py-3 justify-between focus:scale-95">
                     <div className="flex gap-4">
                         <div className="rounded-md overflow-hidden w-20 h-full">
                             <img 
@@ -39,7 +39,7 @@ export function ProductCard({prod, limit, minusItem, removeItem, plusItem, disab
                         <p className="text-xs text-neutral-500">quantity: {prod.quantity}</p>
                         <div className="flex items-center gap-2">
                             <h1 className="font-semibold">Rp. {prod.price * prod.quantity}</h1>
-                            <FaTrash onClick={removeItem} className="text-neutral-400"/>
+                            <FaTrash onClick={removeItem} className="text-btn"/>
                         </div>
                     </div>
                 </div>

@@ -46,7 +46,7 @@ export default function FoodPage(){
         <Header
         name={'Hangout Food'}
         />
-        <div className="pt-4 px-[5%]">
+        <div className="">
             <Swiper
             modules={[Pagination, Scrollbar, A11y, Autoplay]}
             spaceBetween={50}
@@ -56,7 +56,7 @@ export default function FoodPage(){
                 disableOnInteraction: false,
             }}
             loop={true}
-            pagination={{ clickable: true }}
+            // pagination={{ clickable: true }}
             className='w-full shadow-multiple border-2 rounded-lg overflow-hidden'
             >
                 {banners.map(banner => (
@@ -74,10 +74,10 @@ export default function FoodPage(){
                 </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="w-full overflow-hidden mt-2">
+            <div className="w-full overflow-hidden mt-2 px-[5%]">
                 <FilterBtnLayout/>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 mb-20 px-[5%]">
                 <h1 className="font-semibold text-sm">Rekomendasi untukmu</h1>
                 <p className="text-xs">Makan enak, mood enak, nonton jadi enak</p>
                 <div className="w-full flex flex-wrap justify-between mt-4 gap-y-4">

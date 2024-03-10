@@ -4,6 +4,8 @@ import { FaChevronRight, FaLocationPin, FaTicketSimple } from "react-icons/fa6";
 import { CartList } from "../../context/CartItem";
 import { ProductCard } from "../Fragments/ProductCard";
 import { Header } from "../Fragments/Header";
+import { ProductVoucher } from "../Fragments/ProductVoucher";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 export function CartLayout(){
@@ -13,6 +15,7 @@ export function CartLayout(){
     const [limit, setLimit] = useState(false)
     const [fee, setFee] = useState(500)
     const [subtotal, setSubtotal] = useState(0)
+    const [showVoucher, setShowVoucher] = useState(false)
 
     useEffect(() => {
         if(cart){
@@ -100,8 +103,25 @@ export function CartLayout(){
         setCart(null)
     }
 
+    function handleShowVoucher(){
+        setShowVoucher(!showVoucher)
+    }
+
     if(cart == null){
-        return(<><h1>No Found</h1></>)
+        return(
+        <>
+        <Header 
+        linkTo={'/food'}
+        name={'Cart'}
+        />
+        <div className="w-full h-dvh flex justify-center items-center">
+            <div>
+                <h1 className="font-medium text-xl">No items here :(</h1>
+                <p className="text-sm mt-1 text-neutral-600">Lets buy some <Link to={'/food'} className="text-btn">Popcorn</Link></p>
+            </div>
+        </div>
+        </>
+        )
     } 
     return(
         <>
@@ -109,7 +129,7 @@ export function CartLayout(){
         linkTo={'/food'}
         name={'Cart'}
         />
-        <div className="w-full bg-white pb-24">
+        <div className="w-full pb-28">
             <div className="w-full px-4 py-3 border-2 flex justify-between items-center">
                 <div className="flex gap-2 items-center">
                     <FaLocationPin className="text-btn"/>
@@ -121,7 +141,7 @@ export function CartLayout(){
                 <h1>Total Items ( {totalItem} )</h1>
                 <h1 onClick={handleClearAll} className="cursor-pointer text-btn">Clear all</h1>
             </div>
-            <div className="px-4 py-2 flex flex-col gap-2">
+            <div className="px-4 bg-white py-2 flex flex-col gap-2">
                 {cart.map(prod => (
                 <ProductCard
                 key={prod.id}
@@ -134,14 +154,14 @@ export function CartLayout(){
                 ))
                 }
             </div>
-            <div className="py-3 px-5 border-2 flex items-center justify-between">
+            <div onClick={handleShowVoucher} className="py-3 px-5 border-2 border-neutral-100 flex items-center justify-between bg-white">
                 <div className="flex items-center gap-2 text-sm">
                     <FaTicketSimple className="text-btn"/>
                     <h1>Voucher Hangout</h1>
                 </div>
                 <FaChevronRight className="text-btn text-sm"/>
             </div>
-            <div className="w-full px-6 py-4">
+            <div className="w-full px-6 py-4 border-2 border-neutral-100 bg-white mt-2">
                 <div className="flex flex-col gap-2">
                     <div className="flex w-full justify-between">
                         <h1>Subtotal</h1>
@@ -158,7 +178,7 @@ export function CartLayout(){
                 </div>
             </div>
         </div>
-        <div className="fixed bottom-0 w-full border-t-2 bg-white pt-4 px-4 shadow-sm rounded-t-xl">
+        <div className="fixed bottom-0 w-full border-t-2 bg-white py-4 px-4 shadow-sm rounded-t-xl">
                     <div className="font-semibold flex w-full justify-between">
                         <h1>Total</h1>
                         <h1>Rp. {totalPrice}</h1>
@@ -167,6 +187,10 @@ export function CartLayout(){
                         <button className="py-3 text-white bg-btn text-sm  rounded-md">Checkout</button>
                     </div>
         </div>
+        <ProductVoucher
+        showVoucher={showVoucher}
+        onClick={handleShowVoucher}
+        />
         </>
     )
 }

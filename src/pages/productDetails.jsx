@@ -45,19 +45,42 @@ export default function ProductDetails(){
             setProduct([{...isSameId, quantity: 1}])
             window.location.href = '/food'
         }
-
-        // if(product){
-        //     setProduct([...product, isSameId])
-        //     window.location.href = '/food'
-        //     return
-        // } else {
-        //     setProduct([isSameId])
-        //     window.location.href = '/food'
-        //     return
-        // }
     }
 
-    console.log(product)
+    function handleBuyNow(){
+        if(product){
+            // Apakah ada produk dengan id yang sama di dalam product
+            const existingProduct = product.find(prod => prod.id === isSameId.id)
+            if(existingProduct){
+                // Produk sudah ada, tambah quantity
+                const updateProduct = {
+                    ...existingProduct,
+                    quantity: existingProduct.quantity + 1,
+                    stock: existingProduct.stock - 1
+                }
+                // Update Product di dalam keranjang
+                const updateProductList = product.map(item => 
+                    item.id === isSameId.id ? updateProduct : item    
+                )
+
+                setProduct(updateProductList)
+            } else {
+                // Produk belum ada di keranjang, tambah produk baru
+                setProduct(
+                    [...product, {
+                        ...isSameId, 
+                        quantity: 1, 
+                        stock: product.stock - 1
+                        }
+                    ])
+            }
+            window.location.href = '/cart'
+        } else {
+            // Tidak ada produk sama sekali, tambahkan produk pertama kedaalam keranjang
+            setProduct([{...isSameId, quantity: 1}])
+            window.location.href = '/cart'
+        }
+    }
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(product))
@@ -78,7 +101,7 @@ export default function ProductDetails(){
             className="w-full h-full object-cover"
             />
         </div>
-        <div className="px-4 pt-4">
+        <div className="px-4 pt-4 bg-white">
             <div className="flex items-start justify-between">
                 <div>
                     <p className="text-neutral-500 text-xs">Bundle Extra</p>
@@ -106,8 +129,13 @@ export default function ProductDetails(){
             </div>
 
         </div>
-        <div onClick={handleAddToCart} className="cursor-pointer w-full py-4 flex justify-center text-white font-semibold bg-btn mt-4 fixed bottom-0">
-            <h1>Add To Cart</h1>
+        <div className="flex w-full px-1 gap-1 fixed justify-between bottom-0">
+            <button onClick={handleAddToCart} className="cursor-pointer rounded-md py-3 w-[50%]  flex justify-center text-btn border-btn border-2 font-semibold bg-white mt-4 ">
+                <h1>Add To Cart</h1>
+            </button>
+            <button onClick={handleBuyNow} className="cursor-pointer rounded-md py-3 w-[50%] flex justify-center text-white font-semibold bg-btn mt-4 ">
+                <h1>Buy Now</h1>
+            </button>
         </div>
         </>
     )
