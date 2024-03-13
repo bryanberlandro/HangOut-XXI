@@ -14,6 +14,8 @@ import { FoodData } from "../data/FoodData";
 import { TabBar } from "../components/Fragments/TabBar";
 import { Rupiah } from "../utils/Rupiah";
 import { CartList } from "../context/CartItem";
+import { FaMagnifyingGlass, FaSearchengin } from "react-icons/fa6";
+import { UserProfile } from "../context/User";
 
 export default function FoodPage(){
     const banners = [
@@ -36,6 +38,8 @@ export default function FoodPage(){
     ]
     const [products, setProducts] = useState([])
     const {cart, setCart} = useContext(CartList)
+    const {user, setUser} = useContext(UserProfile)
+
 
     useEffect(() => {
         setProducts(FoodData)
@@ -45,39 +49,32 @@ export default function FoodPage(){
         <>
         <Header
         name={'Hangout Food'}
+        linkTo={'/'}
         />
         <div className="">
-            <Swiper
-            modules={[Pagination, Scrollbar, A11y, Autoplay]}
-            spaceBetween={50}
-            slidesPerView={1}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}
-            loop={true}
-            // pagination={{ clickable: true }}
-            className='w-full shadow-multiple border-2 rounded-lg overflow-hidden'
-            >
-                {banners.map(banner => (
-                <SwiperSlide 
-                key={banner.id} 
-                className="after:content-[''] after:bg-none cursor-pointer"
-                >
-                    <div className='h-44 md:h-64 w-full relative overflow-hidden xl:h-[500px]'>
-                        <img 
-                        src={banner.image} 
-                        alt="" 
-                        className='w-full h-full object-cover'
+            <div className="px-[5%] w-full relative bg-white py-4 rounded-b-md ">
+                <div className="max-w-60">
+                    <h1 className="text-xl font-semibold">Hello, {user ? user[0].fullname : ''}</h1>
+                    <p className="text-sm text-neutral-600">Mau nonton sambil nyemil ?</p>
+                </div>
+                <div className="w-full rounded-full border-2 px-3 py-2 flex items-center gap-4 mt-8 mb-4 bg-white">
+                    <div>
+                        <FaMagnifyingGlass
+                        className="text-neutral-600"
                         />
                     </div>
-                </SwiperSlide>
-                ))}
-            </Swiper>
-            <div className="w-full overflow-hidden mt-2 px-[5%]">
-                <FilterBtnLayout/>
+                    <input 
+                    type="text" 
+                    placeholder="Popcorn, Milkshake, etc..."
+                    className="outline-none text-sm"
+                    />
+                </div>
+                <div className="w-full overflow-hidden mt-2">
+                    <h1 className="font-semibold text-sm">Kategori</h1>
+                    <FilterBtnLayout/>
+                </div>
             </div>
-            <div className="mt-4 mb-20 px-[5%]">
+            <div className="mt-6 mb-20 px-[5%]">
                 <h1 className="font-semibold text-sm">Rekomendasi untukmu</h1>
                 <p className="text-xs">Makan enak, mood enak, nonton jadi enak</p>
                 <div className="w-full flex flex-wrap justify-between mt-4 gap-y-4">

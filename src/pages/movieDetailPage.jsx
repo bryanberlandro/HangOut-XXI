@@ -20,7 +20,10 @@ export default function MovieDetailPage(){
 
     return(
         <>
-        <Header name={'HANGOUT'}/>
+        <Header 
+        name={'HANGOUT'}
+        linkTo={'/'}
+        />
         <SelectedMovieLayout
         selectedMovie={selectedMovie}
         />

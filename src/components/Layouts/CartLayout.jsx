@@ -131,7 +131,7 @@ export function CartLayout(){
         />
         <div className="w-full pb-28">
             <div className="w-full px-4 py-3 border-2 flex justify-between items-center">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center bg-white">
                     <FaLocationPin className="text-btn"/>
                     <h1 className="text-sm">Alamat Pengiriman</h1>
                 </div>
@@ -141,7 +141,7 @@ export function CartLayout(){
                 <h1>Total Items ( {totalItem} )</h1>
                 <h1 onClick={handleClearAll} className="cursor-pointer text-btn">Clear all</h1>
             </div>
-            <div className="px-4 bg-white py-2 flex flex-col gap-2">
+            <div className="px-4 bg-white py-2 flex flex-col gap-2 border-2 border-neutral-100">
                 {cart.map(prod => (
                 <ProductCard
                 key={prod.id}
@@ -153,6 +153,17 @@ export function CartLayout(){
                 />
                 ))
                 }
+                <div className="flex justify-between px-2 py-2">
+                    <div>
+                        <h1 className="text-sm font-medium">Ada lagi pesanannya?</h1>
+                        <p className="text-xs text-neutral-600 mt-1">Masih bisa nambah menu lain loh</p>
+                    </div>
+                    <button className="text-sm border-2 border-btn text-btn font-medium rounded-full px-4">
+                    <Link to={'/food'}>
+                        Tambah
+                    </Link>
+                    </button>
+                </div>
             </div>
             <div onClick={handleShowVoucher} className="py-3 px-5 border-2 border-neutral-100 flex items-center justify-between bg-white">
                 <div className="flex items-center gap-2 text-sm">
@@ -161,6 +172,7 @@ export function CartLayout(){
                 </div>
                 <FaChevronRight className="text-btn text-sm"/>
             </div>
+
             <div className="w-full px-6 py-4 border-2 border-neutral-100 bg-white mt-2">
                 <div className="flex flex-col gap-2">
                     <div className="flex w-full justify-between">

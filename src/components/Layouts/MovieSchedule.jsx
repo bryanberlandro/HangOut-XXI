@@ -21,17 +21,6 @@ export function MovieSchedule({selectedMovie}){
     }, [])
 
 
-    // movieSchedule.map(movie => {
-    //     if(movie.cinema === 'XXI'){
-    //         let cinemaColor = ''
-    //         cinemaColor = 'from-yellow-700 to-yellow-400'
-    //     } else if(movie.cinema === 'CGV'){
-    //         cinemaColor = 'from-red-500 to-red-400'
-    //     } else if (movie.cinema === 'CINEPOLIS'){
-    //         cinemaColor = 'from-zinc-900 to-zinc-700'
-    //     }
-    // })
-
     return (
         <>
         <div className="w-full flex flex-col gap-2">

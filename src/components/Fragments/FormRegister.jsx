@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
 
 export default function FormRegister(){
     const [isLogin, setIsLogin] = useState(true)
+    const [user, setUser] = useState([])
 
 
     function handleRegister(e){
@@ -32,13 +33,24 @@ export default function FormRegister(){
             return 
         }
 
-        localStorage.setItem('id', id)
-        localStorage.setItem('fullname', fullname)
-        localStorage.setItem('username', userName)
-        localStorage.setItem('email', email)
-        localStorage.setItem('password', password)
+        const updateUser = 
+        [...user, 
+            {
+                fullname: fullname, 
+                username: userName,
+                email: email,
+                password: password,
+                user_id: id
+            } 
+        ]
+
+        setUser(updateUser)
         window.location.href = '/login'
     }
+
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(user))
+    }, [user])
 
     return (
         <>

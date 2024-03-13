@@ -70,14 +70,14 @@ export default function ProductDetails(){
                     [...product, {
                         ...isSameId, 
                         quantity: 1, 
-                        stock: product.stock - 1
+                        stock: isSameId.stock - 1
                         }
                     ])
             }
             window.location.href = '/cart'
         } else {
             // Tidak ada produk sama sekali, tambahkan produk pertama kedaalam keranjang
-            setProduct([{...isSameId, quantity: 1}])
+            setProduct([{...isSameId, quantity: 1, stock: isSameId.stock - 1}])
             window.location.href = '/cart'
         }
     }
@@ -94,14 +94,14 @@ export default function ProductDetails(){
         name={'Food Details'}
         linkTo={'/food'}
         />
-        <div className="w-full h-72 overflow-hidden relative bg-gradient-to-t from-slate-700">
+        <div className="w-full h-52 overflow-hidden relative bg-gradient-to-t from-white">
             <img 
             src={isSameId.image} 
             alt="" 
-            className="w-full h-full object-cover"
+            className="w-full mix-blend-multiply h-full object-cover"
             />
         </div>
-        <div className="px-4 pt-4 bg-white">
+        <div className="px-8 pt-4 bg-white">
             <div className="flex items-start justify-between">
                 <div>
                     <p className="text-neutral-500 text-xs">Bundle Extra</p>
@@ -115,9 +115,9 @@ export default function ProductDetails(){
                     </div>
                 </div>
             </div>
-            <div className="my-6">
+            <div className="my-6 max-w-60">
                 <h1 className="font-medium">Product Details</h1>
-                <p className="text-sm text-neutral-600">Popcorn Medium Mix + 2 Hangout Java Tea / Soft Drink Small</p>
+                <p className="text-sm text-neutral-600">{isSameId.details}</p>
             </div>
             <div className="">
                 <h1 className="text-neutral-600 font-medium">Size Minuman</h1>
@@ -127,9 +127,12 @@ export default function ProductDetails(){
                     <FilterBtn name={'Large'}/>
                 </div>
             </div>
+            <div>
+                <p>{isSameId.stock}</p>
+            </div>
 
         </div>
-        <div className="flex w-full px-1 gap-1 fixed justify-between bottom-0">
+        <div className="flex w-full pb-2 px-1 gap-1 fixed justify-between bottom-0">
             <button onClick={handleAddToCart} className="cursor-pointer rounded-md py-3 w-[50%]  flex justify-center text-btn border-btn border-2 font-semibold bg-white mt-4 ">
                 <h1>Add To Cart</h1>
             </button>

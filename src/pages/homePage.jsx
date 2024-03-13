@@ -15,13 +15,13 @@ import { Notification } from "../components/Elements/Notification/Notification";
 export default function Home(){
     const [showNotification, setShowNotification] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
-    const userIsLogin = localStorage.getItem('username')
+    const userIsLogin = localStorage.getItem('user')
 
     useEffect(() => {
         if(userIsLogin){
             setIsLogin(true)
         }
-    }, [])
+    }, [userIsLogin])
 
     function handleNotification(){
         setShowNotification(!showNotification)

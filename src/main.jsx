@@ -14,41 +14,30 @@ import FoodPage from './pages/productPage';
 import ProductDetails from './pages/productDetails';
 import CartContextProvider from './context/CartItem';
 import CartPage from './pages/cartPage';
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Home/>
-//   },
-//   {
-//     path: '/login',
-//     element: <LoginPage/>
-//   },
-//   {
-//     path: '/register',
-//     element: <RegisterPage/>
-//   }
-// ])
+import AddressPage from './pages/addressPage';
+import UserContextProvider from './context/User';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <RouterProvider router={router}/> */}
-    <CartContextProvider>
-      <BrowserRouter>
-          <Routes>
-          <Route path='*' element={<NotFoundPage/>}/>
-          <Route path='/' element={<Home/>} />
-          <Route path='/profile' element={<ProfilePage/>}/>
-          <Route path='/voucher' element={<PromoPage/>} />
-          <Route path='/login' element={<LoginPage/>} />
-          <Route path='/register' element={<RegisterPage/>} />
-          <Route path='/food' element={<FoodPage/>}/>
-          <Route path='/food/:id' element={<ProductDetails/>}/>
-          <Route path='/cart' element={<CartPage/>}/>
-          <Route path='/movie/:id' element={<MovieDetailPage/>}/>
-          </Routes>
-      </BrowserRouter>
-    </CartContextProvider>
+    <UserContextProvider>
+      <CartContextProvider>
+        <BrowserRouter>
+            <Routes>
+            <Route path='*' element={<NotFoundPage/>}/>
+            <Route path='/' element={<Home/>} />
+            <Route path='/profile' element={<ProfilePage/>}/>
+            <Route path='/voucher' element={<PromoPage/>} />
+            <Route path='/login' element={<LoginPage/>} />
+            <Route path='/register' element={<RegisterPage/>} />
+            <Route path='/food' element={<FoodPage/>}/>
+            <Route path='/food/:id' element={<ProductDetails/>}/>
+            <Route path='/cart/address' element={<AddressPage/>}/>
+            <Route path='/cart' element={<CartPage/>}/>
+            <Route path='/movie/:id' element={<MovieDetailPage/>}/>
+            </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
+    </UserContextProvider>
   </React.StrictMode>,
 )

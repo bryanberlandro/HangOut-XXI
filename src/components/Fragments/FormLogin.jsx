@@ -1,17 +1,20 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ButtonEl } from "../Elements/Button/ButtonEl";
 import InputForm from "../Elements/Input";
+import { UserProfile } from "../../context/User";
 
 export default function FormLogin(){
     const [isLogin, setIsLogin] = useState(true)
-    const userEmail = localStorage.getItem('email')
-    const userPassword = localStorage.getItem('password')
+    const {user, setUser} = useContext(UserProfile)
+    const userEmail = JSON.stringify(user[0].email).slice(1, -1)
+    const userPassword = JSON.stringify(user[0].password).slice(1, -1)
 
     function handleLogin(e){
         e.preventDefault()
         const emailLogin = e.target.email.value
         const passwordLogin = e.target.password.value
+        console.log(emailLogin)
         
         if(emailLogin == "" && passwordLogin == ""){
             setIsLogin(false)
