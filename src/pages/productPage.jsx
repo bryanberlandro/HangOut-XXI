@@ -57,7 +57,7 @@ export default function FoodPage(){
                     <h1 className="text-xl font-semibold">Hello, {user ? user[0].fullname : ''}</h1>
                     <p className="text-sm text-neutral-600">Mau nonton sambil nyemil ?</p>
                 </div>
-                <div className="w-full rounded-full border-2 px-3 py-2 flex items-center gap-4 mt-8 mb-4 bg-white">
+                <div className="w-full rounded-full border-2 px-3 py-2 flex items-center gap-4 mt-4 mb-4 bg-white">
                     <div>
                         <FaMagnifyingGlass
                         className="text-neutral-600"
@@ -74,10 +74,10 @@ export default function FoodPage(){
                     <FilterBtnLayout/>
                 </div>
             </div>
-            <div className="mt-6 mb-20 px-[5%]">
+            <div className="mt-2 py-4 mb-20 px-[5%] bg-white">
                 <h1 className="font-semibold text-sm">Rekomendasi untukmu</h1>
                 <p className="text-xs">Makan enak, mood enak, nonton jadi enak</p>
-                <div className="w-full flex flex-wrap justify-between mt-4 gap-y-4">
+                <div className="w-full flex flex-col gap-3 mt-4">
                     {products.map(product => (
                         <ProdCard
                         key={product.id}
@@ -88,6 +88,7 @@ export default function FoodPage(){
                         size={product.size}
                         price={Rupiah(product.price)}
                         id={product.id}
+                        rating={product.rating}
                         />
                     ))}
                 </div>

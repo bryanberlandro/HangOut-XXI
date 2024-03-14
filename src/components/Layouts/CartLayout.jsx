@@ -13,7 +13,7 @@ export function CartLayout(){
     const [totalItem, setTotalItem] = useState(0)
     const {cart, setCart} = useContext(CartList)
     const [limit, setLimit] = useState(false)
-    const [fee, setFee] = useState(500)
+    const [fee, setFee] = useState(0)
     const [subtotal, setSubtotal] = useState(0)
     const [showVoucher, setShowVoucher] = useState(false)
 
@@ -24,6 +24,10 @@ export function CartLayout(){
             setTotalPrice(sum + fee)
             setSubtotal(sum)
             setTotalItem(totalProd)
+        } else {
+            setTotalItem(0)
+            setSubtotal(0)
+            setTotalPrice(0)
         }
     }, [cart, fee])
 
@@ -37,7 +41,7 @@ export function CartLayout(){
                 setFee(1800)
             }
         } else {
-            setFee(500)
+            setFee(0)
         }
     }, [cart])
 
@@ -107,22 +111,6 @@ export function CartLayout(){
         setShowVoucher(!showVoucher)
     }
 
-    if(cart == null){
-        return(
-        <>
-        <Header 
-        linkTo={'/food'}
-        name={'Cart'}
-        />
-        <div className="w-full h-dvh flex justify-center items-center">
-            <div>
-                <h1 className="font-medium text-xl">No items here :(</h1>
-                <p className="text-sm mt-1 text-neutral-600">Lets buy some <Link to={'/food'} className="text-btn">Popcorn</Link></p>
-            </div>
-        </div>
-        </>
-        )
-    } 
     return(
         <>
         <Header 
@@ -130,30 +118,39 @@ export function CartLayout(){
         name={'Cart'}
         />
         <div className="w-full pb-28">
-            <div className="w-full px-4 py-3 border-2 flex justify-between items-center">
-                <div className="flex gap-2 items-center bg-white">
+            <div className="w-full px-4 py-3 border-2 border-neutral-100 flex justify-between items-center bg-white">
+                <div className="flex gap-2 items-center ">
                     <FaLocationPin className="text-btn"/>
                     <h1 className="text-sm">Alamat Pengiriman</h1>
                 </div>
                 <FaChevronRight className="text-btn"/>
             </div>
-            <div className="w-full text-sm flex justify-between px-5 py-4 ">
+            <div className="w-full text-sm flex justify-between px-5 py-4 bg-white  mt-1">
                 <h1>Total Items ( {totalItem} )</h1>
                 <h1 onClick={handleClearAll} className="cursor-pointer text-btn">Clear all</h1>
             </div>
-            <div className="px-4 bg-white py-2 flex flex-col gap-2 border-2 border-neutral-100">
-                {cart.map(prod => (
-                <ProductCard
-                key={prod.id}
-                prod={prod}
-                minusItem={() => handleMinusItem(prod)}
-                plusItem={() => handlePlusItem(prod)}
-                removeItem={() => handleRemoveItem(prod)}
-                disable={limit}
-                />
-                ))
-                }
-                <div className="flex justify-between px-2 py-2">
+            <div className=" bg-neutral-50 border-2 border-neutral-100">
+                <div className="flex flex-col gap-2 px-4">
+                    {cart == null 
+                    ?   (
+                        <div className="mx-auto py-10 text-center">
+                        <h1 className="font-medium text-base">No items here :(</h1>
+                        <p className="text-sm mt-1 text-neutral-600">Lets buy some <Link to={'/food'} className="text-btn">Popcorn</Link></p>
+                        </div>
+                        )
+                    :  cart.map(prod => (
+                        <ProductCard
+                        key={prod.id}
+                        prod={prod}
+                        minusItem={() => handleMinusItem(prod)}
+                        plusItem={() => handlePlusItem(prod)}
+                        removeItem={() => handleRemoveItem(prod)}
+                        disable={limit}
+                        />
+                    ))  
+                    }
+                </div>
+                <div className="flex justify-between px-5 py-2 bg-white">
                     <div>
                         <h1 className="text-sm font-medium">Ada lagi pesanannya?</h1>
                         <p className="text-xs text-neutral-600 mt-1">Masih bisa nambah menu lain loh</p>
@@ -173,7 +170,7 @@ export function CartLayout(){
                 <FaChevronRight className="text-btn text-sm"/>
             </div>
 
-            <div className="w-full px-6 py-4 border-2 border-neutral-100 bg-white mt-2">
+            <div className="w-full px-6 py-4 border-2 border-neutral-100 bg-white">
                 <div className="flex flex-col gap-2">
                     <div className="flex w-full justify-between">
                         <h1>Subtotal</h1>
