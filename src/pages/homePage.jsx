@@ -57,7 +57,9 @@ export default function Home(){
                 <div className="mt-10 md:my-20">
                     <div className="w-full px-[7%] flex justify-between items-center md:px-[8%]">
                         <h1 className="font-semibold ">Sedang Tayang</h1>
+                        <Link to={'/movies'}>
                         <a href="" className="text-sm text-btn underline underline-offset-2">Semua</a>
+                        </Link>
                     </div>
                     <div className="mt-3 overflow-hidden ">
                         <div className="scroll-hidden flex gap-2 w-max overflow-scroll px-[5%] md:px-[8%]">

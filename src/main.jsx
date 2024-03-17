@@ -16,6 +16,7 @@ import CartContextProvider from './context/CartItem';
 import CartPage from './pages/cartPage';
 import AddressPage from './pages/addressPage';
 import UserContextProvider from './context/User';
+import MoviesPage from './pages/moviesPage';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/food/:id' element={<ProductDetails/>}/>
             <Route path='/cart/address' element={<AddressPage/>}/>
             <Route path='/cart' element={<CartPage/>}/>
+            <Route path='/movies' element={<MoviesPage/>}/>
             <Route path='/movie/:id' element={<MovieDetailPage/>}/>
             </Routes>
         </BrowserRouter>

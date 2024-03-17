@@ -35,7 +35,7 @@ export default function ProductDetails(){
                     [...product, {
                         ...isSameId, 
                         quantity: 1, 
-                        stock: product.stock - 1
+                        stock: isSameId.stock - 1
                         }
                     ])
             }

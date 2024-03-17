@@ -3,14 +3,10 @@ import { ButtonComp } from "./ButtonComp";
 
 /* eslint-disable react/prop-types */
 export function Sidebar({onShowSidebar}){
-    const userData = localStorage.getItem('email');
+    const userData = localStorage.getItem('user');
 
     function handleLogOut(){
-        localStorage.removeItem('id')
-        localStorage.removeItem('fullname')
-        localStorage.removeItem('username')
-        localStorage.removeItem('email')
-        localStorage.removeItem('password')
+        localStorage.removeItem('user')
     }
 
     return (

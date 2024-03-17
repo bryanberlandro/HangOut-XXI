@@ -5,7 +5,7 @@ const API_KEY = "000c14c8bdacaf933d6486c04d4155c0"
 const OngkirService = {
     getProvinces: async () => {
         try {
-            const response = await axios.get('https://api.rajaongkir.com/starter/province',
+            const response = await axios.get('cekongkir.mlopp.com/api/province',
             {
                 headers: {
                     key: API_KEY,
