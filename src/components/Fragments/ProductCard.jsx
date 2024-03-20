@@ -23,14 +23,14 @@ export function ProductCard({prod, limit, minusItem, removeItem, plusItem, disab
                             <div className="h-max flex mt-1">
                                 <button 
                                 onClick={minusItem} 
-                                className="border-2 py-1 px-4 text-xs"
+                                className="border-[1px] py-1 px-4 text-xs"
                                 disabled={disable ? true : false}
                                 >-</button>
-                                <div className="border-2 py-1 px-2 text-xs">{prod.quantity}</div>
+                                <div className="border-[1px] py-1 px-2 text-xs">{prod.quantity}</div>
                                 <button
                                 onClick={plusItem} 
                                 disabled={limit ? true : false}
-                                className="border-2 py-1 px-4 text-xs">+</button>
+                                className="border-[1px] py-1 px-4 text-xs">+</button>
                             </div>
                         </div>
                         </div>

@@ -5,7 +5,7 @@ import { BuyTicket } from "../Elements/BuyTicket/BuyTicket";
 import { FaTicketSimple } from "react-icons/fa6";
 
 /* eslint-disable react/prop-types */
-export function SelectedMovieLayout({selectedMovie}){
+export function SelectedMovieLayout({selectedMovie, schedule, onClick, chooseSeat}){
     const {image, name, id, genre, actor, duration, director, age, actorProfile} = selectedMovie
 
     const [isActive, setIsActive] = useState(false)
@@ -72,13 +72,17 @@ export function SelectedMovieLayout({selectedMovie}){
                 />
                 : <MovieSchedule
                 selectedMovie={selectedMovie}
+                schedule={schedule}
+                onClick={onClick}
                 />
             }
         </div>
         {
             isActive
             ? <BuyTicket>Watch Now !</BuyTicket>
-            : <BuyTicket>
+                
+            :
+                <BuyTicket onClick={chooseSeat}>
                     <FaTicketSimple/>
                     Buy Ticket
                 </BuyTicket>

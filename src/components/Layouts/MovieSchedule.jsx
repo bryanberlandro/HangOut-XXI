@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import { FaBuilding} from "react-icons/fa6";
 import { Rupiah } from "../../utils/Rupiah";
 
-export function MovieSchedule({selectedMovie}){
+export function MovieSchedule({selectedMovie, schedule, onClick}){
     const movieSchedule = selectedMovie.schedule
     const [currentTime, setCurrentTime] = useState(new Date())
-
     
     useEffect(() => {
         const updateTime = () => {
@@ -19,7 +18,8 @@ export function MovieSchedule({selectedMovie}){
             clearInterval(interval)
         }
     }, [])
-
+    
+    
 
     return (
         <>
@@ -30,7 +30,7 @@ export function MovieSchedule({selectedMovie}){
                 <div className="flex justify-between w-full">
                     <div>
                         <div className="flex gap-2">
-                            <FaBuilding/>
+                            <FaBuilding className="text-btn"/>
                             <h1 className="font-semibold">{movie.mall}</h1>
                         </div>
                         <p className="text-neutral-400 text-xs mt-1">{movie.location}</p>
@@ -50,8 +50,11 @@ export function MovieSchedule({selectedMovie}){
                     {
                         movie.time.map(time => (
                             <button 
+                            onClick={() => onClick(movie, time)}
                             key={time} 
-                            className={` border-[1px] py-1 px-5 rounded-md ${currentTime.getHours() >= parseInt(time.split(':')[0]) ? 'cursor-not-allowed bg-neutral-200 text-neutral-400' : 'bg-white text-black'}`}
+                            className={` border-[1px] focus:bg-btn focus:scale-[.98] focus:shadow-sm focus:border-btn-focus focus:text-white py-1 px-5 rounded-md 
+                            ${currentTime.getHours() >= parseInt(time.split(':')[0]) ? 'cursor-not-allowed bg-neutral-200 text-neutral-400' : 'bg-white text-black'}
+                            `}
                             disabled={currentTime.getHours() >= parseInt(time.split(':')[0])}
                             >
                                 {time}
