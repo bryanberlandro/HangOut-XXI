@@ -104,11 +104,11 @@ export default function CinemaSeatsPage(){
                 <div className="w-full h-[20%] border-2">
                     <div className="flex divide-x-2 h-[60%] divide-neutral-300 py-2">
                         <div className="w-[50%] text-center h-full flex flex-col items-center justify-center ">
-                            <h1>Total Harga</h1>
-                            <h1>{Rupiah(totalPrice)}</h1>
+                            <h1 className="text-sm">Total Harga</h1>
+                            <h1 className="text-btn font-medium text-lg">{Rupiah(totalPrice)}</h1>
                         </div>
                         <div className="w-[50%] text-center h-full flex flex-col items-center justify-center ">
-                            <h1>Tempat Duduk</h1>
+                            <h1 className="text-sm">Tempat Duduk</h1>
                             <div className="flex gap-1 flex-wrap max-w-32 justify-center mt-1">
                                 {selectedSeats == null 
                                 ? <h1 className="text-xs mt-1 text-neutral-400">Kamu belum pilih</h1>
@@ -121,7 +121,7 @@ export default function CinemaSeatsPage(){
                             </div>
                         </div>
                     </div>
-                    <button className={`py-4 h-[40%] ${selectedSeats == null ? "bg-neutral-200 text-neutral-400" : "bg-btn-focus text-white"} w-full`}>
+                    <button className={`py-4 h-[40%] ${selectedSeats == null ? "bg-neutral-200 text-neutral-400" : "bg-sky-700 text-white"} w-full`}>
                         Ringkasan Order ( {selectedSeats == null ? 0 : selectedSeats.length} )
                     </button>
                 </div>
