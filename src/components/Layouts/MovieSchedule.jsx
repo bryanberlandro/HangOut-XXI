@@ -11,7 +11,6 @@ export function MovieSchedule({selectedMovie, schedule, onClick}){
         const updateTime = () => {
             setCurrentTime(new Date())
         }
-
         const interval = setInterval(updateTime, 1000)
 
         return () => {
