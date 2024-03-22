@@ -1,13 +1,14 @@
 import { Link, useParams } from "react-router-dom"
-import { MoviesData } from "../data/MoviesData"
+// import { MoviesData } from "../data/MoviesData"
 import { FaArrowLeft, FaCircleExclamation, FaXmark } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { MovieSeatsData } from "../data/MovieSeatsData";
 import { Rupiah } from "../utils/Rupiah";
+import { WhiteHeader } from "../components/Fragments/WhiteHeader";
 
 export default function CinemaSeatsPage(){
     const { id } = useParams()
-    const selectedMovie = MoviesData.find(movie => movie.id.toString() === id);
+    // const selectedMovie = MoviesData.find(movie => movie.id.toString() === id);
     const movieSchedule = JSON.parse(localStorage.getItem('movie_schedule'));
     const [ watchTime, setWatchTime ] = useState(movieSchedule);
     const [ showInfo, setShowInfo ] = useState(false)
@@ -32,7 +33,7 @@ export default function CinemaSeatsPage(){
     }
 
     function handleChooseSeat(seat){
-        const updateSeats = {id: seat.id, isSeatChosen: true};
+        const updateSeats = {id: seat.id, seats: seat.seat, isSeatChosen: true};
         if(selectedSeats == null){
             setSelectedSeats([updateSeats])
         } else {
@@ -44,21 +45,32 @@ export default function CinemaSeatsPage(){
         }
     }
 
+    function handleShowSummary(){
+        const updateSchedule = [
+            {
+                ...watchTime[0],
+                seats_number: selectedSeats, 
+                total_ticket: selectedSeats.length,  
+                price: totalPrice
+            }
+        ]
+
+        localStorage.setItem('ticket_summary', JSON.stringify(updateSchedule))
+        window.location.href = `/movie/${id}/seats/summary`
+    }
+
 
     return(
         <>
             {watchTime.map(watch => (
             <div key={watch.id} className="w-full h-dvh">
                 <div className="h-[20%]">
-                    <div className="w-full py-2 border-b-2 flex gap-5 px-[5%] items-center">
-                        <Link to={`/movie/${id}`}>
-                        <FaArrowLeft className="text-md"/>
-                        </Link>
-                        <div>
-                            <h1 className="font-medium">{watch.name}</h1>
-                            <p className="text-xs text-neutral-600">{watch.time} | {watch.location}</p>
-                        </div>
-                    </div>
+                    <WhiteHeader
+                    linkTo={`/movie/${id}`}
+                    location={watch.location}
+                    name={watch.name}
+                    time={watch.time}
+                    />
                     <div className={`${showInfo ? 'hidden' : 'flex'} w-full px-[5%] bg-sky-100 py-2  items-center text-xs justify-between`}>
                         <div className="flex gap-2 items-center">
                             <FaCircleExclamation className="text-red-400"/>
@@ -90,7 +102,7 @@ export default function CinemaSeatsPage(){
                                 key={seat.id} 
                                 className={`${seat.isAvailable ? 'bg-btn' : 'bg-neutral-300'}
                                 w-9 h-9 focus:bg-sky-700 text-sm text-white rounded-md`}>
-                                    <h1>{seat.id}</h1>
+                                    <h1>{seat.seat}</h1>
                                 </button>
                             )
                         )}
@@ -121,7 +133,9 @@ export default function CinemaSeatsPage(){
                             </div>
                         </div>
                     </div>
-                    <button className={`py-4 h-[40%] ${selectedSeats == null ? "bg-neutral-200 text-neutral-400" : "bg-sky-700 text-white"} w-full`}>
+                    <button 
+                    onClick={handleShowSummary}
+                    className={`py-4 h-[40%] ${selectedSeats == null ? "bg-neutral-200 text-neutral-400" : "bg-sky-700 text-white"} w-full`}>
                         Ringkasan Order ( {selectedSeats == null ? 0 : selectedSeats.length} )
                     </button>
                 </div>

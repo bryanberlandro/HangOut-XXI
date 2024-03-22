@@ -23,7 +23,8 @@ export default function MovieDetailPage(){
                 location: movie.location, 
                 cinema: movie.cinema, 
                 price: movie.price, 
-                time: time
+                time: time,
+                image: selectedMovie.image
             }
         ])
     }
@@ -37,7 +38,6 @@ export default function MovieDetailPage(){
     }
 
     useEffect(() => {
-        console.log(schedule)
         localStorage.setItem('movie_schedule', JSON.stringify(schedule))
     }, [schedule])
 

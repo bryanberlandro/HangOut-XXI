@@ -18,6 +18,7 @@ import AddressPage from './pages/addressPage';
 import UserContextProvider from './context/User';
 import MoviesPage from './pages/moviesPage';
 import CinemaSeatsPage from './pages/cinemaSeatsPage';
+import TicketSummaryPage from './pages/ticketSummaryPage';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -39,6 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='/movies' element={<MoviesPage/>}/>
             <Route path='/movie/:id' element={<MovieDetailPage/>}/>
             <Route path='/movie/:id/seats' element={<CinemaSeatsPage/>}/>
+            <Route path='/movie/:id/seats/summary' element={<TicketSummaryPage/>}/>
             </Routes>
         </BrowserRouter>
       </CartContextProvider>
