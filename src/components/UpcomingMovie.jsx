@@ -1,8 +1,20 @@
+import { Suspense, lazy } from "react";
 import { Swiper } from "../utils/Swiper";
 import { SwiperSlide } from "../utils/SwiperSlide";
 import { FaFire } from "react-icons/fa6";
+const MovieFrag = lazy(() => import("./Fragments/MovieFrag"));
+
 
 export function UpcomingMovie(){
+        function loadComp(){
+            return(
+                <>
+                <div className="w-full h-full bg-neutral-300 animate-pulse object-cover">
+    
+                </div>
+                </>
+            )
+        }
     const upcomingMovies = [
         {
             id: 1,
@@ -25,6 +37,7 @@ export function UpcomingMovie(){
             image: '/img/upcoming-5.jpg',
         },
     ]
+
 
     return(
         <>
@@ -65,8 +78,9 @@ export function UpcomingMovie(){
         >
             {upcomingMovies.map((movie) => (
             <SwiperSlide key={movie.id} className='swiper-slide-upcoming'>
-                    <img src={movie.image} alt=""  className="w-full h-full object-cover"/>
-
+                <Suspense fallback={loadComp()}>
+                    <MovieFrag movie={movie}/>
+                </Suspense>
             </SwiperSlide>
             ))}
             

@@ -8,10 +8,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useEffect, useState } from 'react';
+import { Suspense, lazy } from 'react';
+const Banner = lazy(() => import('./Fragments/Banner'));
 
 export function Carousel({showNotif}){
-    const [loading, setLoading] = useState(true);
+
     const banners = [
         {
             id: 1,
@@ -31,22 +32,13 @@ export function Carousel({showNotif}){
         },
     ]
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000)
+    function compLoad(){
+        return(
+            <>
+            <div className='h-44 bg-neutral-300 animate-pulse md:h-64 rounded-lg w-full relative overflow-hidden xl:h-[500px]'>
 
-        
-        return () => {
-            clearTimeout()
-        }
-    }, [])
-
-    if(loading){
-        return (
-            <div className='h-44 md:h-64 w-full bg-neutral-400 animate-pulse rounded-lg relative overflow-hidden xl:h-[500px]'>
-                
             </div>
+            </>
         )
     }
 
@@ -67,9 +59,9 @@ export function Carousel({showNotif}){
         >
             {banners.map((banner) => (
             <SwiperSlide onClick={showNotif} key={banner.id} className="after:content-[''] after:bg-none cursor-pointer">
-                <div className='h-44 md:h-64 w-full relative overflow-hidden xl:h-[500px]'>
-                    <img src={banner.image} alt="" className='w-full h-full object-cover'/>
-                </div>
+                <Suspense fallback={compLoad()}>
+                    <Banner banner={banner}/>
+                </Suspense>
             </SwiperSlide>
             ))}
         </Swiper>
