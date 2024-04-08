@@ -7,14 +7,13 @@ import { UserProfile } from "../../context/User";
 export default function FormLogin(){
     const [isLogin, setIsLogin] = useState(true)
     const {user, setUser} = useContext(UserProfile)
-    const userEmail = JSON.stringify(user[0].email).slice(1, -1)
-    const userPassword = JSON.stringify(user[0].password).slice(1, -1)
-
+    
     function handleLogin(e){
         e.preventDefault()
+        const userEmail = JSON.stringify(user[0].email).slice(1, -1)
+        const userPassword = JSON.stringify(user[0].password).slice(1, -1)
         const emailLogin = e.target.email.value
         const passwordLogin = e.target.password.value
-        console.log(emailLogin)
         
         if(emailLogin == "" && passwordLogin == ""){
             setIsLogin(false)
@@ -72,9 +71,7 @@ export default function FormLogin(){
                 <div className="text-end">
                     <a href="" className="text-btn text-sm">forget your password?</a>
                 </div>
-                {/* <Link to={isLogin ? "/" : "/login"}> */}
-                    <ButtonEl value={"LOGIN"}/>
-                {/* </Link> */}
+                <ButtonEl value={"LOGIN"}/>
                 <div className="w-full text-xs my-2 flex items-center justify-center text-neutral-400 gap-2">
                     <div className="bg-neutral-300 w-[40%] h-[2px]"></div>
                     <h1>OR</h1>

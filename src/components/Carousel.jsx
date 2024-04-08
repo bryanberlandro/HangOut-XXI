@@ -8,8 +8,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useEffect, useState } from 'react';
 
 export function Carousel({showNotif}){
+    const [loading, setLoading] = useState(true);
     const banners = [
         {
             id: 1,
@@ -28,6 +30,25 @@ export function Carousel({showNotif}){
             image: '/img/promo-1.jpg'
         },
     ]
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000)
+
+        
+        return () => {
+            clearTimeout()
+        }
+    }, [])
+
+    if(loading){
+        return (
+            <div className='h-44 md:h-64 w-full bg-neutral-400 animate-pulse rounded-lg relative overflow-hidden xl:h-[500px]'>
+                
+            </div>
+        )
+    }
 
     return (
         <Swiper
